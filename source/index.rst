@@ -3,6 +3,6 @@
    :glob:
    :caption: Contents:
 
-   intro
+   Introduction
    CrystFEL & HTcondor
 
