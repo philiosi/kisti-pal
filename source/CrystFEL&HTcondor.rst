@@ -29,44 +29,46 @@ Section 2.1 Data analysis preparation
 
 2.1.2. 분석 데이터 준비
 
-    - 폴더 구성
-    .. code-block:: bash
-      {your_directory}
-      ├── 0000079-pal40
-      │   ├── cheetah.ini
-      │   ├── cheetah.out
-      │   ├── cleaned.txt
-      │   ├── frames.txt
-      │   ├── h5files.txt
-      │   ├── log.txt
-      │   ├── original.ini
-      │   ├── peaks.txt
-      │   ├── r0079-detector0-class0-sum.h5
-      │   ├── r0079-detector0-class1-sum.h5
-      │   ├── r0079-detector0-class2-sum.h5
-      │   ├── r0079-detector0-class3-sum.h5
-      │   ├── status.txt
-      │   ├── ue_191027_SFX-r0079-c00.cxi
-      │   └── ue_191027_SFX-r0079-c00.h5
-      ├── 0000080-pal40
-      ├── 0000081-pal40
-      ├── 0000082-pal40
-      ├── 0000083-pal40
-      ├── 0000084-pal40
-      └── indexamajig_htcondor 
-          ├── 1_exec_file_list_script.sh      # lst 파일 리스트 생성 스크립트
-          ├── 2_submit_condor_indexing.sh     # indexamajig condor job 제출
-          ├── 3_exec_indexing.sh              # condor job에서 실행할 스크립트
-          ├── file_list                       # indexamajig을 실행할 대상 파일
-          ├── geom_file1.geom                 # geom 예제 파일
-          ├── geom_file2.geom                 # geom 예제 파일
-          ├── geom_files                      # geom 예제 파일 모음 디렉토리
-          ├── lib                             # 분석에 사용할 lib
-          ├── mosflm.lp                       # mosflm 예제 파일
-          ├── pdb_file1.pdb                   # pdb 예제 파일
-          ├── r009400.lst                     # lst 예제 파일
-          ├── README.md
-          └── SASE_1.stream                   # stream 예제 파일
+- 폴더 구성
+
+  .. code-block:: bash
+
+    {your_directory}
+    ├── 0000079-pal40
+    │   ├── cheetah.ini
+    │   ├── cheetah.out
+    │   ├── cleaned.txt
+    │   ├── frames.txt
+    │   ├── h5files.txt
+    │   ├── log.txt
+    │   ├── original.ini
+    │   ├── peaks.txt
+    │   ├── r0079-detector0-class0-sum.h5
+    │   ├── r0079-detector0-class1-sum.h5
+    │   ├── r0079-detector0-class2-sum.h5
+    │   ├── r0079-detector0-class3-sum.h5
+    │   ├── status.txt
+    │   ├── ue_191027_SFX-r0079-c00.cxi
+    │   └── ue_191027_SFX-r0079-c00.h5
+    ├── 0000080-pal40
+    ├── 0000081-pal40
+    ├── 0000082-pal40
+    ├── 0000083-pal40
+    ├── 0000084-pal40
+    └── indexamajig_htcondor
+        ├── 1_exec_file_list_script.sh      # lst 파일 리스트 생성 스크립트
+        ├── 2_submit_condor_indexing.sh     # indexamajig condor job 제출
+        ├── 3_exec_indexing.sh              # condor job에서 실행할 스크립트
+        ├── file_list                       # indexamajig을 실행할 대상 파일
+        ├── geom_file1.geom                 # geom 예제 파일
+        ├── geom_file2.geom                 # geom 예제 파일
+        ├── geom_files                      # geom 예제 파일 모음 디렉토리
+        ├── lib                             # 분석에 사용할 lib
+        ├── mosflm.lp                       # mosflm 예제 파일
+        ├── pdb_file1.pdb                   # pdb 예제 파일
+        ├── r009400.lst                     # lst 예제 파일
+        ├── README.md
+        └── SASE_1.stream                   # stream 예제 파일
 
 Section 2.2 CXI File Lists Creation
 ---------------------------------------------------
