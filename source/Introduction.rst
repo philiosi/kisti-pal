@@ -6,6 +6,8 @@ Section 1.1 CrystFEL
 
 * CrystFEL[web site] is a suite of programs for processing diffraction data acquired "serially" in a "snapshot" manner, such as when using the technique of Serial Femtosecond Crystallography (SFX) with a free-electron laser source. CrystFEL comprises programs for indexing and integrating diffraction patterns, scaling and merging intensities, simulating patterns, calculating figures of merit for the data and visualising the results. Supporting scripts are provided to help at all stages, including importing data into CCP4 for further processing.
 .. [web site] CrystFEL - https://www.desy.de/~twhite/crystfel/
+.. blockquote::
+    CrystFEL is a suite of programs for processing diffraction data acquired "serially" in a "snapshot" manner, such as when using the technique of Serial Femtosecond Crystallography (SFX) with a free-electron laser source. CrystFEL comprises programs for indexing and integrating diffraction patterns, scaling and merging intensities, simulating patterns, calculating figures of merit for the data and visualising the results. Supporting scripts are provided to help at all stages, including importing data into CCP4 for further processing.
 
 Section 1.2 HTcondor
 --------------------------------------------------
@@ -20,7 +22,7 @@ Section 1.2 HTcondor
     HTCondor is useful when a job must be run many (thousands of) times, perhaps with hundreds of different data sets. With one command, all of the jobs are submitted to HTCondor. Depending upon the number of machines in the HTCondor pool, hundreds of otherwise idle machines can be running the jobs at any given moment.
 
     - HTCondor overview[HTConodr]
-    .. [HTCondor] HTCondor - https://htcondor.org/
+    .. [HTCondor] https://htcondor.org/
 
 .. image:: ../images/usingHtcondor.png
     :scale: 70 %
