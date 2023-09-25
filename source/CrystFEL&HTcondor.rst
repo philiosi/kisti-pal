@@ -30,7 +30,7 @@ Section 2.1 Data analysis preparation
 2.1.2. 분석 데이터 준비
 
     - 폴더 구성
-    .. code-block:: bash
+.. code-block:: bash
        {your_directory}
        ├── 0000079-pal40
        │   ├── cheetah.ini
