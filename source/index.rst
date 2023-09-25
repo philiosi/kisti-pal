@@ -4,5 +4,5 @@
    :caption: Contents:
 
    Introduction
-   CrystFEL & HTcondor
+   CrystFEL&HTcondor
 
