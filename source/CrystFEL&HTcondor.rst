@@ -107,8 +107,8 @@ Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40
   [USERID@pal-ui-el7 condor]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home, data}/{your_directory}
   
 * case 2) 직접 파일 준비
-파일 준비 위치 : /pal/{home, data}/{your_directory}/
-("2.1.2. 분석 데이터 준비" 참조)
+- 파일 준비 위치 : /pal/{home, data}/{your_directory}/
+- ("2.1.2. 분석 데이터 준비" 참조)
 
 2.2.2 CXI 파일 리스트 생성 
 
