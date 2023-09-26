@@ -76,7 +76,7 @@ Section 2.2 CXI File Lists Creation
 
 2.2.1 indexamajig condor job을 위한 파일 준비
 * case 1) 예제 파일 사용
-파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+- 파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
 
 .. code-block:: bash
   
@@ -120,43 +120,44 @@ Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40
   
   - 파일 리스트 생성을 위한 output 디렉토리 설정 (Default : ./{your_directory}/file_list)
   
-  .. code-block:: bash
+.. code-block:: bash
     :caption: 1_exec_file_list_script
 
     # target directory will be created
     target="file_list"
-  
-  - 실행
-  .. code-block:: bash
-    :caption: Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
 
-    [USERID@pal-ui-el7 indexamajig_htcondor]$ ./1_exec_file_list_script.sh                                                                                                           
-    Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
-    [USERID@pal-ui-el7 indexamajig_htcondor]$ ./1_exec_file_list_script.sh -d pal40 
-    ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi r0079c00 
-    ../0000080-pal40/ue_191027_SFX-r0080-c00.cxi r0080c00 
-    ../0000081-pal40/ue_191027_SFX-r0081-c00.cxi r0081c00 
-    ../0000081-pal40/ue_191027_SFX-r0081-c01.cxi r0081c01 
-    ../0000082-pal40/ue_191027_SFX-r0082-c00.cxi r0082c00
-    ../0000082-pal40/ue_191027_SFX-r0082-c01.cxi r0082c01
-    ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
-    ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
+- 실행
+
+.. code-block:: bash
+  :caption: Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
   
-  - 결과
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./1_exec_file_list_script.sh                                                                                                           
+  Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./1_exec_file_list_script.sh -d pal40 
+  ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi r0079c00 
+  ../0000080-pal40/ue_191027_SFX-r0080-c00.cxi r0080c00 
+  ../0000081-pal40/ue_191027_SFX-r0081-c00.cxi r0081c00 
+  ../0000081-pal40/ue_191027_SFX-r0081-c01.cxi r0081c01 
+  ../0000082-pal40/ue_191027_SFX-r0082-c00.cxi r0082c00
+  ../0000082-pal40/ue_191027_SFX-r0082-c01.cxi r0082c01
+  ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
+  ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
   
-  .. code-block:: bash
-    :caption: created lst file list
+- 결과
+  
+.. code-block:: bash
+  :caption: created lst file list
     
-    [USERID@pal-ui-el7 indexamajig_htcondor]$ ll ./file_list/
-    total 209
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0079c00.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0080c00.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c00.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c01.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c00.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c01.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0083c00.lst
-    -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0084c00.lst
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ll ./file_list/
+  total 209
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0079c00.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0080c00.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c00.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c01.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c00.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c01.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0083c00.lst
+  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0084c00.lst
 
 Section 2.3 Submit indexamajig condor jobs
 ---------------------------------------------------
