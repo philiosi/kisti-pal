@@ -11,14 +11,14 @@ Section 2.1 Data analysis preparation
 indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) 또는 그룹 폴더(/pal/data/{group_dir})로 복사
 
 * case 1) indexamajig_condorjob 복사
-  .. code-block:: bash
+.. code-block:: bash
 
     [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
     /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
     [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/{where_you_want}
 
 * case 2) Github clone
-  .. code-block:: bash
+.. code-block:: bash
     
     [USERID@pal-ui-el7 condor]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
     Cloning into 'indexamajig_htcondor'...
@@ -32,7 +32,7 @@ indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) �
 
 - 폴더 구성
 
-  .. code-block:: bash
+.. code-block:: bash
 
     {your_directory}
     ├── 0000079-pal40
