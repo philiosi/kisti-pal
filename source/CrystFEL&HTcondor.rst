@@ -11,13 +11,15 @@ Section 2.1 Data analysis preparation
 indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) 또는 그룹 폴더(/pal/data/{group_dir})로 복사
 
 * case 1 : indexamajig_condorjob 복사
+
 .. code-block:: bash
 
-    [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-    /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor  
-    [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/{where_you_want}
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
+  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor  
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/{where_you_want}
 
 * case 2 : Github clone
+
 .. code-block:: bash
     
     [USERID@pal-ui-el7 condor]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
@@ -75,36 +77,30 @@ Section 2.2 CXI File Lists Creation
 ---------------------------------------------------
 
 2.2.1 indexamajig condor job을 위한 파일 준비
-<<<<<<< HEAD
-
-* case 1) 예제 파일 사용
-- 파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
-=======
     * case 1) 예제 파일 사용
     파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
->>>>>>> c7ff932d70bcbfbcdccd90ed7855e3095ba9c3fa
 
 .. code-block:: bash
 
-    [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
-    total 104
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
-    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
-    drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
+  [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+  total 104
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
+  drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
 Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40까지 6개 데이터 디렉토리 복사
 
