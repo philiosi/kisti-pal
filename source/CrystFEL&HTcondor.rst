@@ -75,31 +75,36 @@ Section 2.2 CXI File Lists Creation
 ---------------------------------------------------
 
 2.2.1 indexamajig condor job을 위한 파일 준비
+<<<<<<< HEAD
 
 * case 1) 예제 파일 사용
 - 파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+=======
+    * case 1) 예제 파일 사용
+    파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+>>>>>>> c7ff932d70bcbfbcdccd90ed7855e3095ba9c3fa
 
 .. code-block:: bash
-  
-  [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
-  total 104
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
-  drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
+
+    [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+    total 104
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
+    drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
+    drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
 Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40까지 6개 데이터 디렉토리 복사
 
@@ -130,6 +135,7 @@ Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40
 - 실행
 
 .. code-block:: bash
+
   :caption: Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
   
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./1_exec_file_list_script.sh                                                                                                           
