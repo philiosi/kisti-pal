@@ -76,12 +76,11 @@ Section 2.2 CXI File Lists Creation
 
 2.2.1 indexamajig condor job을 위한 파일 준비
 * case 1) 예제 파일 사용
-- 파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
 
 .. code-block:: bash
-  
-  [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
-  total 104
+    [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+      total 104
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
