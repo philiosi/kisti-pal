@@ -75,6 +75,7 @@ Section 2.2 CXI File Lists Creation
 ---------------------------------------------------
 
 2.2.1 indexamajig condor job을 위한 파일 준비
+
 * case 1) 예제 파일 사용
 - 파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
 
@@ -121,7 +122,7 @@ Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40
   - 파일 리스트 생성을 위한 output 디렉토리 설정 (Default : ./{your_directory}/file_list)
   
 .. code-block:: bash
-    :caption: 1_exec_file_list_script
+    :caption: 1_exec_file_list_script.sh
 
     # target directory will be created
     target="file_list"
