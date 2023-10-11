@@ -182,3 +182,86 @@ lst 파일 리스트 생성 스크립트(1_exec_file_list_script.sh)를 사용�
 Section 2.3 Submit indexamajig condor jobs
 ---------------------------------------------------
 
+2.3.1 HTcondor job submit 개요
+===================================================
+
+indexamajig 입력값을 토대로 HTCondor에 작업 제출
+- 입력되는 geom file(s), lst file(s)에 대하여 순차적 작업 제출
+
+.. code-block:: bash
+  :caption: submit_condor_indexing job submit example
+
+  ./2_submit_condor_indexing.sh -g pal1_new12.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p 1vds_sase_temp3.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000" 
+
+- "-g" : specific geometry file or directory(multiful geom files)
+- "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
+- "-j" : CPU number[2]_
+- "-f" : specific lst file(.lst) or directory(multiful lst files)
+- "-o" : stream file
+- "-p" : pdb file
+- "-e" : another parameter such as "*--int-radius, --threshold, --min-srn, --min-fradient"
+
+.. [2] max 72 cores
+
+2.3.2 Output Setting
+===================================================
+
+**"stream_dir"과 "log" 디렉터리명 설정 필요**
+
+.. code-block:: bash
+  :caption: 2_submit_condor_indexing.sh, line 16 to 42
+
+  # debug print option 
+  # ex) if [ $DEBUG -eq 1 ]; then echo "[debug] -f option is directory : mf"; fi
+  EBUG=1
+  
+  # Input
+  # The directory location is determined based on the input parameter.
+  geom_dir="" # Do not assign a value. -g option parameter
+  lst_dir="" # Do not assign a value. -f option parameter
+  
+  # Output
+  # 'stream_foler' and 'log' directories are required. Please change directories what you want.
+  # Default directory are 'file_stream' and 'log'
+  stream_dir="file_stream"
+  log="log"
+  
+  # create folder for output and log
+  PROCDIR="$( cd "$( dirname "$0" )" && pwd -P )"
+  
+  # fourc input type
+  # - 1010 : 10 multi lst, multi geom
+  # - 1001 : 9  multi lst, single geom
+  # - 0110 : 6  single lst, multi geom
+  # - 0101 : 5  single lst, single geom
+  in_type=0
+  
+  # asign memory
+  MEM=360
+
+2.3.3 Job Submition
+==================================================
+
+- **geom_files** : directory for multiful geom files
+- **file_list** : directory for multiful lst files 
+
+.. code-block:: bash
+  :caption: multiful geom and multiful lst
+  
+  ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+
+.. code-block:: bash 
+  :caption: multiful geom and single lst
+  
+  ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+
+.. code-block:: bash 
+  :caption: sigle geom and multiful lst
+  
+  ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+
+.. code-block:: bash 
+  :caption: sigle geom and single lst
+  
+  ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+
