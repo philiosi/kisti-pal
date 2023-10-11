@@ -12,17 +12,19 @@ Section 2.1 Data analysis preparation
 ---------------------------------------------------
 
 2.1.1. 분석용 Script 준비
-indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) 또는 그룹 폴더(/pal/data/{group_dir})로 복사
+indexamajig_condorjob 또는 Github 코드를 계정 Home(/pal/home/{account}/condor)[1]_ 또는 그룹 폴더(/pal/data/{group_dir}/condor)[1]_로 복사
 
-* case 1 : indexamajig_condorjob 복사
+.. [1] 본 예제에서는 계정 Home 또는 그룹 폴더에 "condor" 폴더 생성
+
+**case 1 : indexamajig_condorjob 복사**
 
 .. code-block:: bash
 
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor  
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/{where_you_want}
+  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/condor/
 
-* case 2 : Github clone
+**case 2 : Github clone**
 
 .. code-block:: bash
     
@@ -34,14 +36,14 @@ indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) �
     remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
     Unpacking objects: 100% (80/80), done.
 
-2.1.2. 분석 데이터 준비
+2.1.2. 분석 준비
 
 - 폴더 구성
 
 .. code-block:: bash
 
-    {your_directory}
-    ├── 0000079-pal40
+    {condor}
+    ├── [0000079-pal40]                     # 샘플 데이터
     │   ├── cheetah.ini
     │   ├── cheetah.out
     │   ├── cleaned.txt
@@ -57,12 +59,12 @@ indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) �
     │   ├── status.txt
     │   ├── ue_191027_SFX-r0079-c00.cxi
     │   └── ue_191027_SFX-r0079-c00.h5
-    ├── 0000080-pal40
-    ├── 0000081-pal40
-    ├── 0000082-pal40
-    ├── 0000083-pal40
-    ├── 0000084-pal40
-    └── indexamajig_htcondor
+    ├── [0000080-pal40]
+    ├── [0000081-pal40]
+    ├── [0000082-pal40]
+    ├── [0000083-pal40]
+    ├── [0000084-pal40]
+    └── [indexamajig_htcondor]              # code base directory
         ├── 1_exec_file_list_script.sh      # lst 파일 리스트 생성 스크립트
         ├── 2_submit_condor_indexing.sh     # indexamajig condor job 제출
         ├── 3_exec_indexing.sh              # condor job에서 실행할 스크립트
@@ -85,11 +87,12 @@ Section 2.2 CXI File Lists Creation
 2.2.1 indexamajig condor job을 위한 파일 준비
 ===================================================
 
-  - **case 1) 예제 파일 사용**
-  
-    파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+**case 1) 예제 파일 사용**
+
+Condor job 테스트를 위한 파일 위치
 
 .. code-block:: bash
+  :caption: /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
 
   [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
   total 104
@@ -111,34 +114,33 @@ Section 2.2 CXI File Lists Creation
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
-Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40까지 6개 데이터 디렉토리 복사
+lst 파일 리스트 생성 스크립트(1_exec_file_list_script.sh)를 사용하기 위해서는 각 파일 디렉토리는 특정 keyward로 끝나야 함
+- (예) 'pal40'으로 끝나는 디렉토리 : 0000079-pal40, 0000080-pal40, ... 
 
 .. code-block:: bash
-  
+  :caption: 예) 0000079-pal40부터 0000084-pal40까지 6개 데이터 복사
+
   [USERID@pal-ui-el7 condor]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home, data}/{your_directory}
   
-- **case 2) 직접 파일 준비**
+**case 2) 직접 파일 준비**
 
-  파일 준비 위치 : /pal/{home, data}/{your_directory}/
-  ("2.1.2. 분석 데이터 준비" 참조)
+  파일 준비 위치 : /pal/{home, data}/{your_directory}
+  ("2.1.2. 분석 준비" 참조)
 
 
 2.2.2 CXI 파일 리스트 생성
 ===================================================
 
-* 1_exec_file_list_script.sh 스크립트 실행
+**1_exec_file_list_script.sh 스크립트 실행**
   
-  - 준비 : "2.2.1 indexamajig condor job을 위한 파일 준비"
-    * 각 파일 디렉토리는 특정 keyward로 끝나야 함
-      (예) 'pal40'으로 끝나는 디렉토리 : 0000079-pal40, 0000080-pal40, ... 
-  
-  - 파일 리스트 생성을 위한 output 디렉토리 설정 (Default : ./{your_directory}/file_list)
+- 설정 : 파일 리스트 생성을 위한 output 디렉토리 설정 (Default : ./{your_directory}/file_list)
   
 .. code-block:: bash
-    :caption: 1_exec_file_list_script.sh
+  :caption: 1_exec_file_list_script.sh
 
-    # target directory will be created
-    target="file_list"
+  # target directory will be created.
+  # Please change directory name what you want
+  target="file_list"
 
 - 실행
 
@@ -173,6 +175,10 @@ Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40
   -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c01.lst
   -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0083c00.lst
   -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0084c00.lst
-
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ cat ./file_list/r0079c00.lst
+  ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi
+ 
+---------------------------------------------------
 Section 2.3 Submit indexamajig condor jobs
 ---------------------------------------------------
+
