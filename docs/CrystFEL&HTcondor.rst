@@ -1,9 +1,13 @@
+==================================================
 Section 2 CrystFEL & HTCondor
 ==================================================
+
 Indexamajig_condorjob에 대한 예제는 아래 경로 및 Github repository에서 확인 가능
  * KISTI Storage - /pal/data/htcondor_sample/ue_xxxxxx_SFX/proc/cheetah/hdf5/indexamajig_condorjob/
  * Github - https://github.com/philiosi/kisti-pal
 
+
+---------------------------------------------------
 Section 2.1 Data analysis preparation
 ---------------------------------------------------
 
@@ -73,11 +77,16 @@ indexamajig_condorjob 또는 Github 코드를 계정 홈(/pal/home/{account}) �
         ├── README.md
         └── SASE_1.stream                   # stream 예제 파일
 
+
+---------------------------------------------------
 Section 2.2 CXI File Lists Creation
 ---------------------------------------------------
 
 2.2.1 indexamajig condor job을 위한 파일 준비
-    * case 1) 예제 파일 사용
+===================================================
+
+  - **case 1) 예제 파일 사용**
+  
     파일 위치 : /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
 
 .. code-block:: bash
@@ -108,11 +117,14 @@ Condor job 테스트를 위한 파일 복사 : 0000079-pal40부터 0000084-pal40
   
   [USERID@pal-ui-el7 condor]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home, data}/{your_directory}
   
-* case 2) 직접 파일 준비
-- 파일 준비 위치 : /pal/{home, data}/{your_directory}/
-- ("2.1.2. 분석 데이터 준비" 참조)
+- **case 2) 직접 파일 준비**
 
-2.2.2 CXI 파일 리스트 생성 
+  파일 준비 위치 : /pal/{home, data}/{your_directory}/
+  ("2.1.2. 분석 데이터 준비" 참조)
+
+
+2.2.2 CXI 파일 리스트 생성
+===================================================
 
 * 1_exec_file_list_script.sh 스크립트 실행
   
