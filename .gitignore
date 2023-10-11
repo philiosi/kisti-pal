@@ -1,6 +1,10 @@
 # vscode
 .vscode/
 
+# unnecessary dir
+build/
+source/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
