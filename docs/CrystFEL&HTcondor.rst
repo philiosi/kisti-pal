@@ -11,10 +11,10 @@ Indexamajig_condorjob example
 Section 2.1 Data analysis preparation
 ---------------------------------------------------
 
-2.1.1. 분석용 Script 준비
-indexamajig_condorjob 또는 Github 코드를 계정 Home(/pal/home/{account}/condor)[1]_ 또는 그룹 폴더(/pal/data/{group_dir}/condor)[1]_로 복사
+2.1.1. Preparing Analysis Script
+Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^1].
 
-.. [1] 본 예제에서는 계정 Home 또는 그룹 폴더에 "condor" 폴더 생성
+[^1]: In this example, create a "condor" folder in the account home directory or the group folder.
 
 **case 1 : indexamajig_condorjob 복사**
 
