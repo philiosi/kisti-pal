@@ -2,7 +2,7 @@
 Section 2 CrystFEL & HTCondor
 ==================================================
 
-Indexamajig_condorjob에 대한 예제는 아래 경로 및 Github repository에서 확인 가능
+Indexamajig_condorjob example
  * KISTI Storage - /pal/data/htcondor_sample/ue_xxxxxx_SFX/proc/cheetah/hdf5/indexamajig_condorjob/
  * Github - https://github.com/philiosi/kisti-pal
 
