@@ -6,6 +6,8 @@
    introduction
    system_information
    access_ui
+   setting_environment_variables
+   helpdesk_service
    gui_applications
    data_transfer_globus_online
    anaconda

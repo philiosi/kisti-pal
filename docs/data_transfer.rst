@@ -2,11 +2,10 @@
 Data Transfer
 =============================
 
-
 Globus Online
 -------------------------------
 
-KISTI GSDC has the Globus online endpoints, which are set as pal-ui-el7@gsdc-pal and pal-ui@gadc-pal.
+KISTI GSDC has the Globus online endpoints, which are set as pal-ui-el7@gsdc-pal.
 
 Steps to transfer data:
 1. Sign up for Globus online and log in (supports CILogon, Google, ORCID iD, globus id).
