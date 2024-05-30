@@ -10,7 +10,7 @@
    data_transfer_globus_online
    anaconda
    htCondor_job_processing
-   crystfel&htcondor
+   CrystFEL&HTCondor
 
 Indices and tables
 ==================

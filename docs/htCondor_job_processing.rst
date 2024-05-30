@@ -1,7 +1,7 @@
-Section 1 Introduction
+Introduction of HTcondor job processing with CrystFEL
 =====================================================================
 
-Section 1.1 CrystFEL
+CrystFEL
 ----------------------------------------------------------------------------
 .. epigraph::
     CrystFEL is a suite of programs for processing diffraction data acquired "serially" in a "snapshot" manner, such as when using the technique of Serial Femtosecond Crystallography (SFX) with a free-electron laser source. 
@@ -10,7 +10,7 @@ Section 1.1 CrystFEL
  
     -- CrystFEL overview - https://www.desy.de/~twhite/crystfel/
 
-Section 1.2 HTcondor
+HTcondor
 --------------------------------------------------
 
 * HTCondor Software Suite (HTCSS) provides an array of services for automating and managing High Throughput workloads and computing capacity. 
@@ -24,7 +24,7 @@ Section 1.2 HTcondor
 
     -- HTCondor overview - https://htcondor.org/
 
-Section 1.3 Indexamajig Execution based on the HTCondor 
+Indexamajig Execution based on the HTCondor 
 ------------------------------------------------------------------------
 
 You can perform 10 indexamajig job with 72cores on the each worker nodes of HTCondor like below:
