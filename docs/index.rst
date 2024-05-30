@@ -5,14 +5,14 @@
 
    introduction
    system_information
-   prerequisites
-   account_setup
-   ui_access_with_ssh
+   access_ui
    setting_environment_variables
    helpdesk_service
    gui_applications
    data_transfer_globus_online
    anaconda
+   htCondor_job_processing
+   crystfel&htcondor
 
 Indices and tables
 ==================
@@ -20,3 +20,11 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. note::
+   Version 0.91
+   4 Apr 2022
+   Written by S. Ahn and S. Na
+   Contact: shna@kisti.re.kr
+
+   KISTI GSDC PAL Farm User Guide

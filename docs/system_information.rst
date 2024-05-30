@@ -1,7 +1,10 @@
+==================
 System Information
 ==================
 
-## User Interface
+------------------
+User Interface (UI) Nodes
+------------------
 
 +---------------------+----------------------------------------------------------+
 | **Hostname**        | pal-ui-el7.sdfarm.kr & pal-ui.sdfarm.kr & pal-ui02-el7.  |
@@ -17,7 +20,9 @@ System Information
 | **Storage**         | 540TB (Home and Data are shared)                         |
 +---------------------+----------------------------------------------------------+
 
-## Cluster (HTCondor worker node, MPI Enabled)
+------------------
+Cluster (HTCondor worker node, MPI Enabled)
+------------------
 
 +---------------------+----------------------------------------------------------+
 | **Hostname**        | pal-wn1001.sdfarm.kr ~ pal-wn1010.sdfarm.kr              |
@@ -32,7 +37,9 @@ System Information
 | **Storage**         | 540TB (Home and Data are shared)                         |
 +---------------------+----------------------------------------------------------+
 
-## Installed Packages
+------------------
+Installed Packages
+------------------
 
 - CrystFEL 0.10.1 (with hdf5-1.10.5)
 - CrystFEL 0.9.1 (with hdf5-1.10.5)
@@ -44,5 +51,5 @@ System Information
 - PHENIX
 - CCP4
 - Cheetah-FXL (new and old versions)
-- Python (2.7.5)
-- Anaconda (4.8.3)
+- Python 2.7.5
+- Anaconda 4.8.3
