@@ -12,9 +12,9 @@ Section 2.1 Data analysis preparation
 ---------------------------------------------------
 
 2.1.1. Preparing Analysis Script
-Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^1].
+Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
 
-[^1]: In this example, create a "condor" folder in the account home directory or the group folder.
+[^1 ^2]: In this example, create a "condor" folder in the account home directory or the group folder.
 
 **case 1 : indexamajig_condorjob 복사**
 
@@ -36,7 +36,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
     Unpacking objects: 100% (80/80), done.
 
-2.1.2. 분석 준비
+2.1.2. Preparing analysis data
 
 - 폴더 구성
 
