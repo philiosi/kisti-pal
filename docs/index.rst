@@ -20,9 +20,9 @@ Indices and tables
 * :ref:`search`
 
 .. note::
-   Version 0.91
-   4 Apr 2022
-   Written by S. Ahn and S. Na
-   Contact: shna@kisti.re.kr
-
    KISTI GSDC PAL Farm User Guide
+   
+   Version 0.92 \
+   30 May 2024 \
+   Written by S. Ahn and S. Na \
+   Contact: shna@kisti.re.kr
