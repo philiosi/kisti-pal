@@ -17,7 +17,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 [^1 ^2]: In this example, create a "condor" folder in the account home directory or the group folder.
 
-**case 1 : indexamajig_condorjob 복사**
+**case 1 : Copy indexamajig_htcondor directory**
 
 .. code-block:: bash
 
@@ -39,12 +39,12 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 2.1.2. Preparing analysis data
 
-- 폴더 구성
+- Directory structure:
 
 .. code-block:: bash
 
     {condor}
-    ├── [0000079-pal40]                     # 샘플 데이터
+    ├── [0000079-pal40]                     # data sample
     │   ├── cheetah.ini
     │   ├── cheetah.out
     │   ├── cleaned.txt
@@ -66,31 +66,31 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     ├── [0000083-pal40]
     ├── [0000084-pal40]
     └── [indexamajig_htcondor]              # code base directory
-        ├── 1_exec_file_list_script.sh      # lst 파일 리스트 생성 스크립트
-        ├── 2_submit_condor_indexing.sh     # indexamajig condor job 제출
-        ├── 3_exec_indexing.sh              # condor job에서 실행할 스크립트
-        ├── file_list                       # indexamajig을 실행할 대상 파일
-        ├── geom_file1.geom                 # geom 예제 파일
-        ├── geom_file2.geom                 # geom 예제 파일
-        ├── geom_files                      # geom 예제 파일 모음 디렉토리
-        ├── lib                             # 분석에 사용할 lib
-        ├── mosflm.lp                       # mosflm 예제 파일
-        ├── pdb_file1.pdb                   # pdb 예제 파일
-        ├── r009400.lst                     # lst 예제 파일
+        ├── 1_exec_file_list_script.sh      # script to create lst list
+        ├── 2_submit_condor_indexing.sh     # submit indexamajig condor job
+        ├── 3_exec_indexing.sh              # Script to be executed by the condor job
+        ├── file_list                       # Files ('lst' files) to be processed by indexamajig
+        ├── geom_file1.geom                 # Example geom file 1
+        ├── geom_file2.geom                 # Example geom file 2
+        ├── geom_files                      # geom files directory
+        ├── lib                             # lib
+        ├── mosflm.lp                       # example mosflm file
+        ├── pdb_file1.pdb                   # example pdb file
+        ├── r009400.lst                     # example lst file
         ├── README.md
-        └── SASE_1.stream                   # stream 예제 파일
+        └── SASE_1.stream                   # example stream file
 
 
 ---------------------------------------------------
 Section 2.2 CXI File Lists Creation
 ---------------------------------------------------
 
-2.2.1 indexamajig condor job을 위한 파일 준비
+2.2.1 Preparing files for analysis
 ===================================================
 
-**case 1) 예제 파일 사용**
+**case 1) Use example files**
 
-Condor job 테스트를 위한 파일 위치
+Location of example files
 
 .. code-block:: bash
   :caption: /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
@@ -115,26 +115,26 @@ Condor job 테스트를 위한 파일 위치
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
-lst 파일 리스트 생성 스크립트(1_exec_file_list_script.sh)를 사용하기 위해서는 각 파일 디렉토리는 특정 keyward로 끝나야 함
-- (예) 'pal40'으로 끝나는 디렉토리 : 0000079-pal40, 0000080-pal40, ... 
+To use the script for generating lst file list (1_exec_file_list_script.sh), each file directory must end with a specific keyword.
+- (Ex) directories ending with 'pal40': 0000079-pal40, 0000080-pal40, ...
 
 .. code-block:: bash
-  :caption: 예) 0000079-pal40부터 0000084-pal40까지 6개 데이터 복사
+  :caption: (Ex) Copy six data sets from 0000079-pal40 to 0000084-pal40
 
   [USERID@pal-ui-el7 condor]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home, data}/{your_directory}
   
-**case 2) 직접 파일 준비**
+**case 2) Use your own file**
 
-  파일 준비 위치 : /pal/{home, data}/{your_directory}
-  ("2.1.2. 분석 준비" 참조)
+  File location : /pal/{home, data}/{your_directory}
+  (Refer to the "2.1.2. Preparing files for analysis")
 
 
-2.2.2 CXI 파일 리스트 생성
+2.2.2 Generating CXI file list
 ===================================================
 
-**1_exec_file_list_script.sh 스크립트 실행**
+**Excute '1_exec_file_list_script.sh' script**
   
-- 설정 : 파일 리스트 생성을 위한 output 디렉토리 설정 (Default : ./{your_directory}/file_list)
+- Please change the 'target' value to whatever you want (Default : ./{your_directory}/file_list)
   
 .. code-block:: bash
   :caption: 1_exec_file_list_script.sh
@@ -143,7 +143,7 @@ lst 파일 리스트 생성 스크립트(1_exec_file_list_script.sh)를 사용�
   # Please change directory name what you want
   target="file_list"
 
-- 실행
+- Excute
 
 .. code-block:: bash
 
@@ -161,7 +161,7 @@ lst 파일 리스트 생성 스크립트(1_exec_file_list_script.sh)를 사용�
   ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
   ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
   
-- 결과
+- Result
   
 .. code-block:: bash
   :caption: created lst file list
@@ -183,11 +183,11 @@ lst 파일 리스트 생성 스크립트(1_exec_file_list_script.sh)를 사용�
 Section 2.3 Submit indexamajig condor jobs
 ---------------------------------------------------
 
-2.3.1 HTcondor job submit 개요
+2.3.1 HTcondor job submit overview
 ===================================================
 
-indexamajig 입력값을 토대로 HTCondor에 작업 제출
-- 입력되는 geom file(s), lst file(s)에 대하여 순차적 작업 제출
+Submitting jobs to HTCondor based on indexamajig inputs
+- Sequentially submit jobs for each input geom file(s) and lst file(s)
 
 .. code-block:: bash
   :caption: submit_condor_indexing job submit example
@@ -207,7 +207,7 @@ indexamajig 입력값을 토대로 HTCondor에 작업 제출
 2.3.2 Output Setting
 ===================================================
 
-**"stream_dir"과 "log" 디렉터리명 설정 필요**
+**Please change the target of 'stream_dir'과 'log' if you want. Each directory will be created**
 
 .. code-block:: bash
   :caption: 2_submit_condor_indexing.sh, line 16 to 42
