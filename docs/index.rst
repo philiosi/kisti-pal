@@ -3,15 +3,20 @@
    :glob:
    :caption: Contents:
 
-   Introduction
-   System Information
-   Prerequisites
-   Account Setup
-   User Interface (UI) Access with SSH
-   Setting Environment Variables
-   Helpdesk Service
-   GUI Applications
-   Data Transfer – Globus Online
-   Anaconda
-   CrystFEL&HTcondor
+   introduction
+   system_information
+   prerequisites
+   account_setup
+   ui_access_with_ssh
+   setting_environment_variables
+   helpdesk_service
+   gui_applications
+   data_transfer_globus_online
+   anaconda
 
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
