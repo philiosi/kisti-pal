@@ -12,6 +12,7 @@ Section 2.1 Data analysis preparation
 ---------------------------------------------------
 
 2.1.1. Preparing Analysis Script
+
 Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
 
 [^1 ^2]: In this example, create a "condor" folder in the account home directory or the group folder.
