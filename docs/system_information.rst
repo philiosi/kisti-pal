@@ -3,26 +3,46 @@ System Information
 
 ## User Interface
 
-- Hostname: `pal-ui-el7.sdfarm.kr`, `pal-ui.sdfarm.kr`, `pal-ui02-el7.sdfarm.kr`
-- Operating System: CentOS 7.5.1804 (Kernel version = 3.10.0-862.9.1.el7.x86_64)
-- CPU: Intel Xeon E5-2697 v4 @ 2.30Hz (72 Threads)
-- Memory: 384GB
-- Storage: 540TB (Home and Data are shared)
++---------------------+----------------------------------------------------------+
+| **Hostname**        | pal-ui-el7.sdfarm.kr & pal-ui.sdfarm.kr & pal-ui02-el7.  |
+|                     | sdfarm.kr                                                |
++---------------------+----------------------------------------------------------+
+| **Operating System**| CentOS 7.5.1804 (Kernel version =                        |
+|                     | 3.10.0-862.9.1.el7.x86_64)                               |
++---------------------+----------------------------------------------------------+
+| **CPU**             | Intel Xeon E5-2697 v4 @ 2.30Hz (72 Threads)              |
++---------------------+----------------------------------------------------------+
+| **Memory**          | 384GB                                                    |
++---------------------+----------------------------------------------------------+
+| **Storage**         | 540TB (Home and Data are shared)                         |
++---------------------+----------------------------------------------------------+
 
 ## Cluster (HTCondor worker node, MPI Enabled)
 
-- Hostname: `pal-wn1001.sdfarm.kr` ~ `pal-wn1010.sdfarm.kr`
-- Operating System: CentOS 7.5.1804 (Kernel version = 3.10.0-862.9.1.el7.x86_64)
-- CPU: Intel Xeon E5-2697 v4 @ 2.30Hz (72 Threads)
-- Memory: 384GB
-- Storage: 540TB (Home and Data are shared)
++---------------------+----------------------------------------------------------+
+| **Hostname**        | pal-wn1001.sdfarm.kr ~ pal-wn1010.sdfarm.kr              |
++---------------------+----------------------------------------------------------+
+| **Operating System**| CentOS 7.5.1804 (Kernel version =                        |
+|                     | 3.10.0-862.9.1.el7.x86_64)                               |
++---------------------+----------------------------------------------------------+
+| **CPU**             | Intel Xeon E5-2697 v4 @ 2.30Hz (72 Threads)              |
++---------------------+----------------------------------------------------------+
+| **Memory**          | 384GB                                                    |
++---------------------+----------------------------------------------------------+
+| **Storage**         | 540TB (Home and Data are shared)                         |
++---------------------+----------------------------------------------------------+
 
 ## Installed Packages
 
-- CrystFEL 0.9.1, 0.9.0, 0.8.0
-- HDF5 1.10.5, 1.8.10-patch1
+- CrystFEL 0.10.1 (with hdf5-1.10.5)
+- CrystFEL 0.9.1 (with hdf5-1.10.5)
+- CrystFEL 0.9.0 (with hdf5-1.10.5)
+- CrystFEL 0.8.0
+- HDF5 1.12.2 (threadsafe)
+- HDF5 1.10.5 (threadsafe)
+- HDF5 1.8.10-patch1
 - PHENIX
 - CCP4
-- Cheetah-pal (new and old versions)
+- Cheetah-FXL (new and old versions)
 - Python (2.7.5)
 - Anaconda (4.8.3)

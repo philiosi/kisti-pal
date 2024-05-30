@@ -8,3 +8,10 @@ Welcome to the KISTI PAL documentation. This guide provides comprehensive inform
 - HTCondor batch job processing
 - Specialized software tools: CrystFEL and Cheetah
 - Detailed user guides and examples
+
+Version 0.91
+4 Apr 2022
+Written by S. Ahn and S. Na
+Contact: shna@kisti.re.kr
+
+KISTI GSDC PAL Farm User Guide
