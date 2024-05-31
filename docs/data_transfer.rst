@@ -17,7 +17,7 @@ Steps to transfer data:
         :scale: 40 %
         :align: center
 
-        Now you can use only the **"pal-ui-el7@GSDC"** endpoints.
+    Now you can use only the **"pal-ui-el7@GSDC"** endpoints.
 
     3. Log in with your KISTI account (being able to access your home and group directory).
 
@@ -31,9 +31,9 @@ Steps to transfer data:
         :scale: 40 %
         :align: center
 
-        You can login with your KISTI account and password.
-            - If you generated an OTP token, then you should input **<password+OTP>** at the password field.
-            (ex) password: *1q2w3e4r* and OTP: 123 456, then your password is *"1q2w3e4r123456"*
+    You can login with your KISTI account and password.
+        - If you generated an OTP token, then you should input **<password+OTP>** at the password field.
+        (ex) password: *1q2w3e4r* and OTP: 123 456, then your password is *"1q2w3e4r123456"*
 
     4. Add your endpoint by downloading and installing “Globus Connect Personal”.
     5. Transfer your data from the GSDC-PAL collection to your personal collection.
