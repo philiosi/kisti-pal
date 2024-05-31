@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'KISTI-PAL GUIDELINE'
+project = 'KISTI-PAL USER GUIDE'
 copyright = '2023, GSDC'
 author = 'Sang-Ho Na'
 

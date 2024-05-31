@@ -1,3 +1,6 @@
+KISTI-PAL USER GUIDE
+==================================
+
 .. toctree::
    :maxdepth: 3
    :glob:
