@@ -13,7 +13,7 @@ You can access PAL UI server by FTP software like Filezilla, winSCP, etc.
         * Note: please refer to the `OTP Guide - Lgin with OTP <https://gsdc-farm.gitbook.io/gsdc-otp/generate-otp>`_. 
     
     .. image:: ../images/sftp.png
-        :scale: 40 %
+        :scale: 70 %
         :align: center   
 
 Globus Online
@@ -30,14 +30,14 @@ Steps to transfer data:
     Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
 
     .. image:: ../images/globus_1.png
-        :scale: 40 %
+        :scale: 70 %
         :align: center   
 
     3. Log in with your KISTI account (being able to access your home and group directory).
 
     Note: Please choose **continue**. And then select your identity or identity provider to continue.
     .. image:: ../images/globus_2.png
-        :scale: 40 %
+        :scale: 70 %
         :align: center
 
     Note: you can login with your KISTI account and password.
@@ -45,7 +45,7 @@ Steps to transfer data:
         (ex) password: *1q2w3e4r* and OTP: 123 456, then your password is *"1q2w3e4r123456"*
 
     .. image:: ../images/globus_3.png
-        :scale: 40 %
+        :scale: 70 %
         :align: center
 
     4. Add your endpoint by downloading and installing “Globus Connect Personal”.
