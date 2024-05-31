@@ -37,3 +37,14 @@ Steps to transfer data:
 5. Transfer your data from the GSDC-PAL collection to your personal collection.
 
 Please note that the transmission performance of Globus online depends entirely on network conditions. KISTI supports high-performance network infrastructure to provide research resources to approximately 200 R&D institutes.
+
+
+.. figure:: /images/sample.png
+   :alt: Sample image
+   :width: 400px
+   :align: center
+
+   Figure 1: Example of an image with a caption.
+
+   This is an additional description for the image, providing more context or emphasis. **Important details** can be highlighted using bold text.
+
