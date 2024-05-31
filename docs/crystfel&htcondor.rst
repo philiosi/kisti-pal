@@ -200,7 +200,6 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
-- "-e" : another parameter such as "*--int-radius, --threshold, --min-srn, --min-fradient"
 
 .. [2] max 72 cores
 

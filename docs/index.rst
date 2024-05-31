@@ -14,13 +14,6 @@
    htCondor_job_processing
    CrystFEL&HTCondor
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 .. note::
    KISTI GSDC PAL Farm User Guide
    
