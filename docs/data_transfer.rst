@@ -2,6 +2,20 @@
 Data Transfer
 =============================
 
+SFTP (Secure File Transfer Protocol, SecureFTP)
+-------------------------------
+
+You can access PAL UI server by FTP software like Filezilla, winSCP, etc.
+    - Protocol: SFTP or SCP
+    - Host: pal-ui-el7.sdfarm.kr / pal-ui02-el7.sdfarm.kr / pal-ui.sdfarm.kr
+    - Port: 4280
+    - Account: KISTI account and password
+        * Note: please refer to the `OTP Guide - Lgin with OTP <https://gsdc-farm.gitbook.io/gsdc-otp/generate-otp>`_. 
+    
+    .. image:: ../images/sftp.png
+        :scale: 40 %
+        :align: center   
+
 Globus Online
 -------------------------------
 
