@@ -11,8 +11,8 @@
    gui_applications
    data_transfer
    anaconda
-   htCondor_job_processing
-   CrystFEL&HTCondor
+   htcondor_job_processing
+   crystfel&htcondor
 
 .. note::
    KISTI GSDC PAL Farm User Guide

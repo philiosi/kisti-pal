@@ -1,5 +1,5 @@
 =====================================================================
-Introduction of HTcondor job processing with CrystFEL
+HTcondor job processing with CrystFEL
 =====================================================================
 
 CrystFEL
@@ -15,15 +15,17 @@ CrystFEL
 HTcondor
 --------------------------------------------------
 
-HTCondor Software Suite (HTCSS) provides an array of services for automating and managing High Throughput workloads and computing capacity.
+.. epigraph::
 
-HTCondor is a software system that creates a High-Throughput Computing (HTC) environment. It effectively uses the computing power of machines connected over a network, be they a single cluster, a set of clusters on a campus, cloud resources either standalone or temporarily joined to a local cluster, or international grids. Power comes from the ability to effectively harness shared resources with distributed ownership.
+    HTCondor Software Suite (HTCSS) provides an array of services for automating and managing High Throughput workloads and computing capacity.
 
-A user submits jobs to HTCondor. HTCondor finds available machines and begins running the jobs there. HTCondor has the capability to detect that a machine running a job is no longer available (perhaps the machine crashed, or maybe it prefers to run another job). HTCondor will automatically restart the job on another machine without intervention from the user.
+    HTCondor is a software system that creates a High-Throughput Computing (HTC) environment. It effectively uses the computing power of machines connected over a network, be they a single cluster, a set of clusters on a campus, cloud resources either standalone or temporarily joined to a local cluster, or international grids. Power comes from the ability to effectively harness shared resources with distributed ownership.
 
-HTCondor is useful when a job must be run many (thousands of) times, perhaps with hundreds of different data sets. With one command, all of the jobs are submitted to HTCondor. Depending upon the number of machines in the HTCondor pool, hundreds of otherwise idle machines can be running the jobs at any given moment.  
+    A user submits jobs to HTCondor. HTCondor finds available machines and begins running the jobs there. HTCondor has the capability to detect that a machine running a job is no longer available (perhaps the machine crashed, or maybe it prefers to run another job). HTCondor will automatically restart the job on another machine without intervention from the user.
 
- - HTCondor overview - https://htcondor.org/
+    HTCondor is useful when a job must be run many (thousands of) times, perhaps with hundreds of different data sets. With one command, all of the jobs are submitted to HTCondor. Depending upon the number of machines in the HTCondor pool, hundreds of otherwise idle machines can be running the jobs at any given moment.  
+
+    -- HTCondor overview - https://htcondor.org/
 
 Indexamajig Execution based on the HTCondor 
 ------------------------------------------------------------------------
