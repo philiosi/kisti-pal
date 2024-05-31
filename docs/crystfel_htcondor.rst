@@ -1,17 +1,17 @@
 ==================================================
-Section 2 CrystFEL & HTCondor
+CrystFEL & HTCondor
 ==================================================
 
 Indexamajig_condorjob example
- * KISTI Storage - /pal/data/htcondor_sample/ue_xxxxxx_SFX/proc/cheetah/hdf5/indexamajig_condorjob/
+ * KISTI Storage - /pal/data/htcondor_sample_ori
  * Github - https://github.com/philiosi/kisti-pal
 
 
 ---------------------------------------------------
-Section 2.1 Data analysis preparation
+1. Data analysis preparation
 ---------------------------------------------------
 
-2.1.1. Preparing Analysis Script
+1.1. Preparing Analysis Script
 
 Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
 
@@ -37,7 +37,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
     Unpacking objects: 100% (80/80), done.
 
-2.1.2. Preparing analysis data
+1.2. Preparing analysis data
 
 - Directory structure:
 
@@ -82,10 +82,10 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 
 ---------------------------------------------------
-Section 2.2 CXI File Lists Creation
+2. CXI File Lists Creation
 ---------------------------------------------------
 
-2.2.1 Preparing files for analysis
+2.1 Preparing files for analysis
 ===================================================
 
 **case 1) Use example files**
@@ -129,7 +129,7 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
   (Refer to the "2.1.2. Preparing files for analysis")
 
 
-2.2.2 Generating CXI file list
+2.2 Generating CXI file list
 ===================================================
 
 **Excute '1_exec_file_list_script.sh' script**
@@ -180,10 +180,10 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi
  
 ---------------------------------------------------
-Section 2.3 Submit indexamajig condor jobs
+3 Submit indexamajig condor jobs
 ---------------------------------------------------
 
-2.3.1 HTcondor job submit overview
+3.1 HTcondor job submit overview
 ===================================================
 
 Submitting jobs to HTCondor based on indexamajig inputs
@@ -203,7 +203,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
 .. [2] max 72 cores
 
-2.3.2 Output Setting
+3.2 Output Setting
 ===================================================
 
 **Please change the target of 'stream_dir'과 'log' if you want. Each directory will be created**
@@ -239,7 +239,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
   # asign memory
   MEM=360
 
-2.3.3 Job Submition
+3.3 Job Submition
 ==================================================
 
 - **geom_files** : directory for multiful geom files
