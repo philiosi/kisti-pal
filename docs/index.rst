@@ -9,7 +9,7 @@
    setting_environment_variables
    helpdesk_service
    gui_applications
-   data_transfer_globus_online
+   data_transfer
    anaconda
    htCondor_job_processing
    CrystFEL&HTCondor
