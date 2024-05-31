@@ -15,7 +15,7 @@ KISTI-PAL USER GUIDE
    data_transfer
    anaconda
    htcondor_job_processing
-   crystfel&htcondor
+   crystfel_htcondor
 
 .. note::
    KISTI GSDC PAL Farm User Guide

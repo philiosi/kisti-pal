@@ -27,7 +27,7 @@ HTcondor
 
     -- HTCondor overview - https://htcondor.org/
 
-Indexamajig Execution based on the HTCondor 
+Indexamajig based on the HTCondor 
 ------------------------------------------------------------------------
 
 You can perform 10 indexamajig job with 72cores on the each worker nodes of HTCondor like below.
