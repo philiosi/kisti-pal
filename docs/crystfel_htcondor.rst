@@ -307,54 +307,59 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
 
 ---------------------------------------------------
-4 Checking HTCondor Queue (condor_q)
+4 HTCondor job managing 
 ---------------------------------------------------
 
-   Official documentation: `condor_q <https://htcondor.readthedocs.io/en/latest/man-pages/condor_q.html?highlight=condor_q#condor-q>`_
+Condor_manual : `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/index.html>`_.
+
+	- `Submitting a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html>`_.
+	- `Managing a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/managing-a-job.html>`_.
 
 4.1. Checking the Condor Queue after Running 2_exec_condor_indexing.sh
 ====================================================================================================
 
-   - Verify the Condor queue status (condor_q) after executing 2_exec_condor_indexing.sh.
-   - Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
-   - Check job status and errors:
-     - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
-     - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
+  - Verify the Condor queue status (condor_q) after executing 2_exec_condor_indexing.sh.
+  - Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
+  - Check job status and errors:
+    - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
+    - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
 
-   - If there are existing jobs submitted by other users, resource allocation might be delayed according to scheduling policies.
-     - Refer to "3) HTCondor References" for information on job queue and priority.
+  - If there are existing jobs submitted by other users, resource allocation might be delayed according to scheduling policies.
+    - Refer to "3) HTCondor References" for information on job queue and priority.
 
-4.2. Checking HTCondor Resource Status
+4.2. HTCondor Resource Status
 ====================================================================================================
 
-   - You can check the status of Condor resources:
-     - Verify the allocation (Claimed) status of jobs on each Worker Node.
+  - You can check the status of Condor resources:
+    - Verify the allocation (Claimed) status of jobs on each Worker Node.
 
 Example:
-   .. code-block:: console
-    [USERID@pal-ui-el7 indexamajig_htcondor]$ condor_status
-    Name                         OpSys      Arch   State     Activity LoadAv Mem     ActvtyTime
-    slot1@pal-wn1001.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+00:33:44
-    slot1_1@pal-wn1001.sdfarm.kr LINUX      X86_64 Claimed   Busy     75.940 368640  0+00:28:54
-    slot1@pal-wn1002.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:26:17
-    slot1_1@pal-wn1002.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.570 368640  0+00:29:42
-    slot1@pal-wn1003.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:27:53
-    slot1_1@pal-wn1003.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.530 368640  0+00:29:41
-    slot1@pal-wn1004.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:42
-    slot1_1@pal-wn1004.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.550 368640  0+00:29:42
-    slot1@pal-wn1005.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:41
-    slot1_1@pal-wn1005.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.630 368640  0+00:29:42
-    slot1@pal-wn1006.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030167+20:32:27
-    slot1_1@pal-wn1006.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:36
-    slot1@pal-wn1007.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:22
-    slot1_1@pal-wn1007.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.520 368640  0+00:29:35
-    slot1@pal-wn1008.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:48
-    slot1_1@pal-wn1008.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:02
-    slot1@pal-wn1009.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:31
-    slot1_1@pal-wn1009.sdfarm.kr LINUX      X86_64 Claimed   Busy     72.000 368640  0+00:29:39
-    Machines Owner Claimed Unclaimed Matched Preempting  Drain
-    X86_64/LINUX       18     0       9         9       0          0      0
-    Total              18     0       9         9       0          0      0
+
+.. code-block:: console
+  
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ condor_status
+  Name                         OpSys      Arch   State     Activity LoadAv Mem     ActvtyTime
+  slot1@pal-wn1001.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+00:33:44
+  slot1_1@pal-wn1001.sdfarm.kr LINUX      X86_64 Claimed   Busy     75.940 368640  0+00:28:54
+  slot1@pal-wn1002.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:26:17
+  slot1_1@pal-wn1002.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.570 368640  0+00:29:42
+  slot1@pal-wn1003.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:27:53
+  slot1_1@pal-wn1003.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.530 368640  0+00:29:41
+  slot1@pal-wn1004.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:42
+  slot1_1@pal-wn1004.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.550 368640  0+00:29:42
+  slot1@pal-wn1005.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:41
+  slot1_1@pal-wn1005.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.630 368640  0+00:29:42
+  slot1@pal-wn1006.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030167+20:32:27
+  slot1_1@pal-wn1006.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:36
+  slot1@pal-wn1007.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:22
+  slot1_1@pal-wn1007.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.520 368640  0+00:29:35
+  slot1@pal-wn1008.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:48
+  slot1_1@pal-wn1008.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:02
+  slot1@pal-wn1009.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:31
+  slot1_1@pal-wn1009.sdfarm.kr LINUX      X86_64 Claimed   Busy     72.000 368640  0+00:29:39
+  Machines Owner Claimed Unclaimed Matched Preempting  Drain
+  X86_64/LINUX       18     0       9         9       0          0      0
+  Total              18     0       9         9       0          0      0
 
 4.3. Execution Results
 ====================================================================================================
@@ -364,28 +369,29 @@ The indexing process logs are generated in the ../indexamajig_htcondor/log/ dire
   - \*.log: condor_submit information
   - \*.out: Output log
 
-   Example:
-   .. code-block:: console
+Example:
 
-      [USERID@pal-ui-el7 log]$ cd log
-      [USERID@pal-ui-el7 log]$ ll
-      total 8242
-      -rw-r--r--. 1 USERID pal_users 212370 May 25 09:20 xgandalf_r0079c00_SASE_1_condor.error
-      -rw-r--r--. 1 USERID pal_users    861 May 25 08:57 xgandalf_r0079c00_SASE_1_condor.log
-      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0079c00_SASE_1_condor.out
-      -rw-r--r--. 1 USERID pal_users 225473 May 25 09:20 xgandalf_r0080c00_SASE_1_condor.error
-      -rw-r--r--. 1 USERID pal_users    861 May 25 09:08 xgandalf_r0080c00_SASE_1_condor.log
-      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0080c00_SASE_1_condor.out
-      -rw-r--r--. 1 USERID pal_users 160855 May 25 09:20 xgandalf_r0081c00_SASE_1_condor.error
-      -rw-r--r--. 1 USERID pal_users   1157 May 25 09:08 xgandalf_r0081c00_SASE_1_condor.log
-      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c00_SASE_1_condor.out
-      -rw-r--r--. 1 USERID pal_users   1957 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.error
-      -rw-r--r--. 1 USERID pal_users   1079 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.log
-      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c01_SASE_1_condor.out
-      -rw-r--r--. 1 USERID pal_users 190031 May 25 09:20 xgandalf_r0082c00_SASE_1_condor.error
-      -rw-r--r--. 1 USERID pal_users   1158 May 25 09:17 xgandalf_r0082c00_SASE_1_condor.log
-      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0082c00_SASE_1_condor.out
-      -rw-r--r--. 1 USERID pal_users   1820 May 25 08:43 xgandalf_r0082c01_S
+.. code-block:: console
+
+  [USERID@pal-ui-el7 log]$ cd log
+  [USERID@pal-ui-el7 log]$ ll
+  total 8242
+  -rw-r--r--. 1 USERID pal_users 212370 May 25 09:20 xgandalf_r0079c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID pal_users    861 May 25 08:57 xgandalf_r0079c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0079c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID pal_users 225473 May 25 09:20 xgandalf_r0080c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID pal_users    861 May 25 09:08 xgandalf_r0080c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0080c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID pal_users 160855 May 25 09:20 xgandalf_r0081c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID pal_users   1157 May 25 09:08 xgandalf_r0081c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID pal_users   1957 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.error
+  -rw-r--r--. 1 USERID pal_users   1079 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.log
+  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c01_SASE_1_condor.out
+  -rw-r--r--. 1 USERID pal_users 190031 May 25 09:20 xgandalf_r0082c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID pal_users   1158 May 25 09:17 xgandalf_r0082c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0082c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID pal_users   1820 May 25 08:43 xgandalf_r0082c01_S
 
 
 

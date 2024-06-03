@@ -16,6 +16,7 @@ KISTI-PAL USER GUIDE
    anaconda
    htcondor_job_processing
    crystfel_htcondor
+   htcondor_reference
 
 .. note::
    KISTI GSDC PAL Farm User Guide
