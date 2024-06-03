@@ -1,5 +1,5 @@
 =====================================================================
-HTcondor job processing with CrystFEL
+HTCondor & CrystFEL Indexamajig
 =====================================================================
 
 CrystFEL
