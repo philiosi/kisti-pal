@@ -82,9 +82,10 @@ Removing Submitted Condor Jobs
 
 - `condor_rm ${JOB_IDS}`
   - JOB_IDS can be found from the `condor_q` result.
-    - Example: `condor_rm 9803.0`
-  - If there are many jobs, you can use braces to specify a range of job IDs.
-    - Example: `{9800..9827}`: The job IDs from the start number to the end number.
+  - Example: `condor_rm 9803.0`
+
+- If there are many jobs, you can use braces to specify a range of job IDs.
+  - Example: `{9800..9827}`: The job IDs from the start number to the end number.
 
 .. code-block:: console
 
