@@ -46,6 +46,52 @@ Checking Condor Job Queue
   - Only jobs on the single UI node (pal-ui-el7.sdfarm.kr, pal-ui02-el7.sdfarm.kr) can be checked.
 - `condor_q -alluser -global`: Shows jobs submitted by other users across all UI nodes (pal-ui-el7.sdfarm.kr, pal-ui02-el7.sdfarm.kr).
 
+Analyzing IDLE Jobs in HTCondor
+----------------------------------------------------------------------------
+
+To analyze jobs that are in the IDLE state in HTCondor, you can use the `condor_q` command with the `-analyze` or `-better-analyze` options. These options provide detailed information about why a job is in the IDLE state and suggest potential reasons for scheduling issues.
+
+1. Use `condor_q -analyze`:
+   - This command provides a basic analysis of the job's status and reasons why it might not be running.
+
+   .. code-block:: console
+
+      condor_q -analyze {JOB_ID}
+
+   Example:
+   .. code-block:: console
+
+      condor_q -analyze 123.0
+
+2. Use `condor_q -better-analyze`:
+   - This command offers a more detailed analysis compared to `-analyze`, giving deeper insights into the job's scheduling constraints and resource availability.
+
+   .. code-block:: console
+
+      condor_q -better-analyze {JOB_ID}
+
+   Example:
+   .. code-block:: console
+
+      condor_q -better-analyze 123.0
+
+By using these commands, you can identify the reasons why a job remains in the IDLE state and take appropriate actions to resolve any issues.
+
+Removing Submitted Condor Jobs
+----------------------------------------------------------------------------
+
+- `condor_rm ${JOB_IDS}`
+  - JOB_IDS can be found from the `condor_q` result.
+    - Example: `condor_rm 9803.0`
+  - If there are many jobs, you can use braces to specify a range of job IDs.
+    - Example: `{9800..9827}`: The job IDs from the start number to the end number.
+
+.. code-block:: console
+
+    [USERID@pal-ui-el7 file_stream]$ condor_rm {25865..25880}
+    All jobs matching constraint (ClusterId == 25865 || ClusterId == 25866 || ClusterId == 25867 || ClusterId == 25868 || ClusterId == 25869 || ClusterId == 25870 || ClusterId == 25871 || ClusterId == 25872 || ClusterId == 25873 || ClusterId == 25874 || ClusterId == 25875 || ClusterId == 25876 || ClusterId == 25877 || ClusterId == 25878 || ClusterId == 25879 || ClusterId == 25880) have been marked for removal
+
+
 Condor Job Prioritization
 ----------------------------------------------------------------------------
 
@@ -67,16 +113,3 @@ Condor Job Prioritization
 - Effective Priority
   - Numerical value indicating the level of resource allocation.
   - Lower values represent higher priority.
-
-Removing Submitted Condor Jobs
-
-- `condor_rm ${JOB_IDS}`
-  - JOB_IDS can be found from the `condor_q` result.
-    - Example: `condor_rm 9803.0`
-  - If there are many jobs, you can use braces to specify a range of job IDs.
-    - Example: `{9800..9827}`: The job IDs from the start number to the end number.
-
-.. code-block:: console
-
-    [USERID@pal-ui-el7 file_stream]$ condor_rm {25865..25880}
-    All jobs matching constraint (ClusterId == 25865 || ClusterId == 25866 || ClusterId == 25867 || ClusterId == 25868 || ClusterId == 25869 || ClusterId == 25870 || ClusterId == 25871 || ClusterId == 25872 || ClusterId == 25873 || ClusterId == 25874 || ClusterId == 25875 || ClusterId == 25876 || ClusterId == 25877 || ClusterId == 25878 || ClusterId == 25879 || ClusterId == 25880) have been marked for removal
