@@ -20,7 +20,7 @@ KISTI-PAL USER GUIDE
 .. note::
    KISTI GSDC PAL Farm User Guide
    
-   Version 0.92 \
-   30 May 2024 \
+   Version 1.0 \
+   3 June 2024 \
    Written by S. Ahn and S. Na \
    Contact: shna@kisti.re.kr
