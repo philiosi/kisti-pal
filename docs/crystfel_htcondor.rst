@@ -4,7 +4,7 @@ HTCondor & CrystFEL Tutorial
 
 Indexamajig_condorjob example
  * KISTI Storage - /pal/htcondor/htcondor_sample_ori.tar
- * Github - https://github.com/philiosi/kisti-pal
+ * Github - https://github.com/philiosi/indexamajig_htcondor
 
 
 ---------------------------------------------------
@@ -240,6 +240,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
+- "-e" : another parameter such as -p, --int-radius, --threshold, --min-srn, --min-fradient
 
 .. [2] max 72 cores
 

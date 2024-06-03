@@ -49,9 +49,9 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
            
              (ex) password: *1q2w3e4r* and OTP: 123 456, then your password is *"1q2w3e4r123456"*
 
-    .. image:: ../images/globus_3.png
-    :scale: 70 %
-    :align: center
+        .. image:: ../images/globus_3.png
+            :scale: 70 %
+            :align: center
 
     4. Add your endpoint by downloading and installing “Globus Connect Personal”.
     5. Transfer your data from the GSDC-PAL collection to your personal collection.
