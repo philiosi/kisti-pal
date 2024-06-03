@@ -30,6 +30,7 @@ Steps to transfer data:
     Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
 
     .. image:: ../images/globus_1.png
+        :caption: Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
         :scale: 70 %
         :align: center   
 
