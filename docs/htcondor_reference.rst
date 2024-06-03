@@ -2,10 +2,12 @@
 HTCondor References
 =====================================================================
 
-Condor_manual: HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation
+Condor_manual
+----------------------------------------------------------------------------
 
-- Submitting a Job — HTCondor Manual 9.8.1 documentation
-- Managing a Job — HTCondor Manual 9.8.1 documentation
+    -  `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/index.html>`_.
+	- `Submitting a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html>`_.
+	- `Managing a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/managing-a-job.html>`_.
 
 Condor Commands
 ----------------------------------------------------------------------------
@@ -40,11 +42,21 @@ You can check the commands by typing `condor_` and pressing the tab key.
 Checking Condor Job Queue
 ----------------------------------------------------------------------------
 
-- `condor_q`: Shows jobs submitted by the user (yourself).
+- `condor_q`:
+
+  - Shows jobs submitted by the user (yourself).
+
   - Refer to `condor_q -help` or the official documentation for options.
-- `condor_q -alluser`: Shows jobs submitted by other users.
+
+- `condor_q -alluser`
+  
+  - Shows jobs submitted by other users.
+
   - Only jobs on the single UI node (pal-ui-el7.sdfarm.kr, pal-ui02-el7.sdfarm.kr) can be checked.
-- `condor_q -alluser -global`: Shows jobs submitted by other users across all UI nodes (pal-ui-el7.sdfarm.kr, pal-ui02-el7.sdfarm.kr).
+
+- `condor_q -alluser -global`: 
+
+  - Shows jobs submitted by other users across all UI nodes (pal-ui-el7.sdfarm.kr, pal-ui02-el7.sdfarm.kr).
 
 Analyzing IDLE Jobs in HTCondor
 ----------------------------------------------------------------------------
@@ -81,11 +93,11 @@ Removing Submitted Condor Jobs
 ----------------------------------------------------------------------------
 
 - `condor_rm ${JOB_IDS}`
-  - JOB_IDS can be found from the `condor_q` result.
-  - Example: `condor_rm 9803.0`
+    * JOB_IDS can be found from the `condor_q` result.
+    * Example: `condor_rm 9803.0`
 
 - If there are many jobs, you can use braces to specify a range of job IDs.
-  - Example: `{9800..9827}`: The job IDs from the start number to the end number.
+    * Example: `{9800..9827}`: The job IDs from the start number to the end number.
 
 .. code-block:: console
 
@@ -97,7 +109,7 @@ Condor Job Prioritization
 ----------------------------------------------------------------------------
 
 - Jobs are scheduled according to Condor's scheduling policy.
-  - For example, if a user submits a large number of jobs and another user submits new jobs, the priority might shift, causing delays in resource allocation for the waiting jobs.
+  * For example, if a user submits a large number of jobs and another user submits new jobs, the priority might shift, causing delays in resource allocation for the waiting jobs.
 
 .. code-block:: console
 
