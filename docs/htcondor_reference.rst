@@ -5,7 +5,7 @@ HTCondor References
 Condor_manual
 ----------------------------------------------------------------------------
 
-    -  `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/index.html>`_.
+    - `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/index.html>`_.
 	- `Submitting a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html>`_.
 	- `Managing a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/managing-a-job.html>`_.
 

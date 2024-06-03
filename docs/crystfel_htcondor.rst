@@ -1,5 +1,5 @@
 ==================================================
-HTCondor & CrystFEL Indexamajig Tutorial
+HTCondor & CrystFEL Tutorial
 ==================================================
 
 Indexamajig_condorjob example
