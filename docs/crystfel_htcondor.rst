@@ -3,7 +3,7 @@ CrystFEL & HTCondor Tutorial
 ==================================================
 
 Indexamajig_condorjob example
- * KISTI Storage - /pal/data/htcondor_sample_ori.tar
+ * KISTI Storage - /pal/htcondor/htcondor_sample_ori.tar
  * Github - https://github.com/philiosi/kisti-pal
 
 
@@ -22,10 +22,10 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 .. code-block:: bash
 
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor_ori
+  /pal/htcondor/
   # check sample files location
 
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor_ori.tar /pal/{home, data}/{your_path}
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori.tar /pal/{home, data}/{your_path}
   # Copy the tar file to the specified paths
    
   [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
@@ -56,7 +56,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 .. code-block:: bash
 
-    {condor}
+    [hdf5]
     ├── [0000079-pal40]                     # data sample
     │   ├── cheetah.ini
     │   ├── cheetah.out
@@ -79,19 +79,19 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     ├── [0000083-pal40]
     ├── [0000084-pal40]
     └── [indexamajig_htcondor]              # code base directory
-        ├── 1_exec_file_list_script.sh      # script to create lst list
-        ├── 2_submit_condor_indexing.sh     # submit indexamajig condor job
-        ├── 3_exec_indexing.sh              # Script to be executed by the condor job
-        ├── file_list                       # Files ('lst' files) to be processed by indexamajig
-        ├── geom_file1.geom                 # Example geom file 1
-        ├── geom_file2.geom                 # Example geom file 2
-        ├── geom_files                      # geom files directory
-        ├── lib                             # lib
-        ├── mosflm.lp                       # example mosflm file
-        ├── pdb_file1.pdb                   # example pdb file
-        ├── r009400.lst                     # example lst file
+        ├── 1_exec_file_list_script.sh      # [script] create lst list
+        ├── 2_submit_condor_indexing.sh     # [script] submit indexamajig condor job
+        ├── 3_exec_indexing.sh              # [script] to be executed by the condor job
+        ├── file_list                       # [Directory] Files ('lst' files) to be processed by indexamajig
+        ├── geom_file1.geom                 # [file] Example geom file 1
+        ├── geom_file2.geom                 # [file] Example geom file 2
+        ├── geom_files                      # [Directory] geom files
+        ├── lib                             # [Directory] lib
+        ├── mosflm.lp                       # [file] example mosflm file
+        ├── pdb_file1.pdb                   # [file] example pdb file
+        ├── r009400.lst                     # [file] example lst file
         ├── README.md
-        └── SASE_1.stream                   # example stream file
+        └── SASE_1.stream                   # [file] example stream file
 
 
 ---------------------------------------------------
@@ -101,14 +101,19 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 2.1 Preparing files for analysis
 ===================================================
 
-**case 1) Use example files**
+**[!important]**
+To use the script for generating lst file list (1_exec_file_list_script.sh), each file directory must end with a specific keyword.
+- (Ex) directories ending with 'pal40': 0000079-pal40, 0000080-pal40, ...
+
+**case 1 : indexamajig_htcondor directory**
+  - Use sample files in the "htcondor_sample_ori"
 
 Location of example files
 
 .. code-block:: bash
-  :caption: /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+  :caption: /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
 
-  [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+  [USERID@pal-ui-el7 hdf5]$ ll /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
   total 104
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
@@ -128,18 +133,40 @@ Location of example files
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
-To use the script for generating lst file list (1_exec_file_list_script.sh), each file directory must end with a specific keyword.
-- (Ex) directories ending with 'pal40': 0000079-pal40, 0000080-pal40, ...
+**case 2 : Github clone**
+  - Copy sample files in the "/pal/htcondor/hdf5_sample"
 
 .. code-block:: bash
-  :caption: (Ex) Copy six data sets from 0000079-pal40 to 0000084-pal40
+  :caption: (Ex) Copy data sets 
 
-  [USERID@pal-ui-el7 condor]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home, data}/{your_directory}
+  [USERID@pal-ui-el7 condor]$ pw
+  /pal/htcondor/hdf5
+  [USERID@pal-ui-el7 condor]$ cp -rf /pal/htcondor/hdf5 /pal/{your_path}/{your_directory}/
+  [USERID@pal-ui-el7 hdf5]# ll
+  total 64
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000079-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000080-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000081-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000082-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000083-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000084-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000085-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000086-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000087-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000088-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000089-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000090-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000091-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000101-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000102-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000103-pal40
   
-**case 2) Use your own file**
+**case 3 : Use your own file**
 
-  File location : /pal/{home, data}/{your_directory}
-  (Refer to the "2.1.2. Preparing files for analysis")
+  Copy your own data sets to the location below:
+  - copyFile location : /pal/{your_path}/{your_directory}/hdf5
+  
+  Please refer to the directory structure in the section "1.2. Preparing analysis data".
 
 
 2.2 Generating CXI file list
@@ -147,7 +174,7 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
 
 **Excute '1_exec_file_list_script.sh' script**
   
-- Please change the 'target' value to whatever you want (Default : ./{your_directory}/file_list)
+- Please change the 'target' value to whatever you want (Default : ../{your_path}/{your_directory}/hdf5/indexamajig_htcondor/file_list)
   
 .. code-block:: bash
   :caption: 1_exec_file_list_script.sh
@@ -205,7 +232,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 .. code-block:: bash
   :caption: submit_condor_indexing job submit example
 
-  ./2_submit_condor_indexing.sh -g pal1_new12.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p 1vds_sase_temp3.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000" 
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g pal1_new12.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p 1vds_sase_temp3.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000" 
 
 - "-g" : specific geometry file or directory(multiful geom files)
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
@@ -261,20 +288,106 @@ Submitting jobs to HTCondor based on indexamajig inputs
 .. code-block:: bash
   :caption: multiful geom and multiful lst
   
-  ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
 .. code-block:: bash 
   :caption: multiful geom and single lst
   
-  ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
 .. code-block:: bash 
   :caption: sigle geom and multiful lst
   
-  ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
 .. code-block:: bash 
   :caption: sigle geom and single lst
   
-  ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+
+
+---------------------------------------------------
+4 Checking HTCondor Queue (condor_q)
+---------------------------------------------------
+
+   Official documentation: `condor_q <https://htcondor.readthedocs.io/en/latest/man-pages/condor_q.html?highlight=condor_q#condor-q>`_
+
+4.1. Checking the Condor Queue after Running 2_exec_condor_indexing.sh
+====================================================================================================
+
+   - Verify the Condor queue status (condor_q) after executing 2_exec_condor_indexing.sh.
+   - Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
+   - Check job status and errors:
+     - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
+     - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
+
+   - If there are existing jobs submitted by other users, resource allocation might be delayed according to scheduling policies.
+     - Refer to "3) HTCondor References" for information on job queue and priority.
+
+4.2. Checking HTCondor Resource Status
+====================================================================================================
+
+   - You can check the status of Condor resources:
+     - Verify the allocation (Claimed) status of jobs on each Worker Node.
+
+Example:
+   .. code-block:: console
+    [USERID@pal-ui-el7 indexamajig_htcondor]$ condor_status
+    Name                         OpSys      Arch   State     Activity LoadAv Mem     ActvtyTime
+    slot1@pal-wn1001.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+00:33:44
+    slot1_1@pal-wn1001.sdfarm.kr LINUX      X86_64 Claimed   Busy     75.940 368640  0+00:28:54
+    slot1@pal-wn1002.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:26:17
+    slot1_1@pal-wn1002.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.570 368640  0+00:29:42
+    slot1@pal-wn1003.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:27:53
+    slot1_1@pal-wn1003.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.530 368640  0+00:29:41
+    slot1@pal-wn1004.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:42
+    slot1_1@pal-wn1004.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.550 368640  0+00:29:42
+    slot1@pal-wn1005.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:41
+    slot1_1@pal-wn1005.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.630 368640  0+00:29:42
+    slot1@pal-wn1006.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030167+20:32:27
+    slot1_1@pal-wn1006.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:36
+    slot1@pal-wn1007.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:22
+    slot1_1@pal-wn1007.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.520 368640  0+00:29:35
+    slot1@pal-wn1008.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:48
+    slot1_1@pal-wn1008.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:02
+    slot1@pal-wn1009.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:31
+    slot1_1@pal-wn1009.sdfarm.kr LINUX      X86_64 Claimed   Busy     72.000 368640  0+00:29:39
+    Machines Owner Claimed Unclaimed Matched Preempting  Drain
+    X86_64/LINUX       18     0       9         9       0          0      0
+    Total              18     0       9         9       0          0      0
+
+4.3. Execution Results
+====================================================================================================
+
+The indexing process logs are generated in the ../indexamajig_htcondor/log/ directory:
+  - \*.error: Indexing log, elapsed time
+  - \*.log: condor_submit information
+  - \*.out: Output log
+
+   Example:
+   .. code-block:: console
+
+      [USERID@pal-ui-el7 log]$ cd log
+      [USERID@pal-ui-el7 log]$ ll
+      total 8242
+      -rw-r--r--. 1 USERID pal_users 212370 May 25 09:20 xgandalf_r0079c00_SASE_1_condor.error
+      -rw-r--r--. 1 USERID pal_users    861 May 25 08:57 xgandalf_r0079c00_SASE_1_condor.log
+      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0079c00_SASE_1_condor.out
+      -rw-r--r--. 1 USERID pal_users 225473 May 25 09:20 xgandalf_r0080c00_SASE_1_condor.error
+      -rw-r--r--. 1 USERID pal_users    861 May 25 09:08 xgandalf_r0080c00_SASE_1_condor.log
+      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0080c00_SASE_1_condor.out
+      -rw-r--r--. 1 USERID pal_users 160855 May 25 09:20 xgandalf_r0081c00_SASE_1_condor.error
+      -rw-r--r--. 1 USERID pal_users   1157 May 25 09:08 xgandalf_r0081c00_SASE_1_condor.log
+      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c00_SASE_1_condor.out
+      -rw-r--r--. 1 USERID pal_users   1957 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.error
+      -rw-r--r--. 1 USERID pal_users   1079 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.log
+      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c01_SASE_1_condor.out
+      -rw-r--r--. 1 USERID pal_users 190031 May 25 09:20 xgandalf_r0082c00_SASE_1_condor.error
+      -rw-r--r--. 1 USERID pal_users   1158 May 25 09:17 xgandalf_r0082c00_SASE_1_condor.log
+      -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0082c00_SASE_1_condor.out
+      -rw-r--r--. 1 USERID pal_users   1820 May 25 08:43 xgandalf_r0082c01_S
+
+
+
+
 
