@@ -37,14 +37,18 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 **case 2 : Github clone**
 
 .. code-block:: bash
-    
-    [USERID@pal-ui-el7 condor]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
-    Cloning into 'indexamajig_htcondor'...
-    remote: Enumerating objects: 80, done.
-    remote: Counting objects: 100% (80/80), done.
-    remote: Compressing objects: 100% (60/60), done.
-    remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
-    Unpacking objects: 100% (80/80), done.
+  
+  [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
+  # Change to /pal/{home, data}/{your_path} directory. 
+  # If you need, then create {your_path} directory using "mkdir {your_path}" commnad.
+
+  [USERID@pal-ui-el7 your_path]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
+  Cloning into 'indexamajig_htcondor'...
+  remote: Enumerating objects: 80, done.
+  remote: Counting objects: 100% (80/80), done.
+  remote: Compressing objects: 100% (60/60), done.
+  remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
+  Unpacking objects: 100% (80/80), done.
 
 1.2. Preparing analysis data
 
