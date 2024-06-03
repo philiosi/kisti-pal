@@ -1,9 +1,9 @@
 ==================================================
-CrystFEL & HTCondor
+CrystFEL & HTCondor Tutorial
 ==================================================
 
 Indexamajig_condorjob example
- * KISTI Storage - /pal/data/htcondor_sample_ori
+ * KISTI Storage - /pal/data/htcondor_sample_ori.tar
  * Github - https://github.com/philiosi/kisti-pal
 
 
@@ -22,8 +22,17 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 .. code-block:: bash
 
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/condor/
+  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor_ori
+  # check sample files location
+
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor_ori.tar /pal/{home, data}/{your_path}
+  # Copy the tar file to the specified paths
+   
+  [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
+  # Change to /pal/{home, data}/{your_path} directory
+
+  [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
+  # Extract the tar file
 
 **case 2 : Github clone**
 
