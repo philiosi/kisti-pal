@@ -21,7 +21,7 @@ You can access PAL UI server by FTP software like Filezilla, winSCP, etc.
 Globus Online
 --------------------------------------------------------------
 
-KISTI GSDC has the Globus online endpoints, which are set as pal-ui-el7@gsdc-pal.
+KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
 
     Steps to transfer data:
 
@@ -29,23 +29,25 @@ KISTI GSDC has the Globus online endpoints, which are set as pal-ui-el7@gsdc-pal
         
     2. Search for the GSDC-PAL collection using the keyword “gsdc-pal”.
 
-    Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
+        - Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
 
-    .. image:: ../images/globus_1.png
-        :scale: 70 %
-        :align: center
+        .. image:: ../images/globus_1.png
+            :scale: 70 %
+            :align: center
 
     3. Log in with your KISTI account (being able to access your home and group directory).
 
-    Note: Please choose **continue**. And then select your identity or identity provider to continue.
+        3.1. Please choose **continue**. And then select your identity or identity provider to continue.
 
-    .. image:: ../images/globus_2.png
-        :scale: 70 %
-        :align: center
+        .. image:: ../images/globus_2.png
+            :scale: 70 %
+            :align: center
 
-    Note: you can log in with your KISTI account and password.
-        - If you generated an OTP token, then you should input **<password+OTP>** at the password field.
-        (ex) password: *1q2w3e4r* and OTP: 123 456, then your password is *"1q2w3e4r123456"*
+        3.2. you can log in with your KISTI account and password.
+
+           - If you generated an OTP token, then you should input **<password+OTP>** at the password field.
+           
+             (ex) password: *1q2w3e4r* and OTP: 123 456, then your password is *"1q2w3e4r123456"*
 
     .. image:: ../images/globus_3.png
     :scale: 70 %
