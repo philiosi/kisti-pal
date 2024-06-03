@@ -186,7 +186,6 @@ Location of example files
 - Excute
 
 .. code-block:: bash
-
   :caption: Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
   
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./1_exec_file_list_script.sh                                                                                                           
