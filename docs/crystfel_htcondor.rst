@@ -401,7 +401,32 @@ Example:
   -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0082c00_SASE_1_condor.out
   -rw-r--r--. 1 USERID pal_users   1820 May 25 08:43 xgandalf_r0082c01_S
 
+4.4. Job History
+====================================================================================================
 
+View log of HTCondor jobs completed to date(`condor_history <https://htcondor.readthedocs.io/en/latest/man-pages/condor_history.html>`_)
+
+Example:
+
+.. code-block:: console
+  
+  [USERID@pal-ui-el7 ~]$ condor_history | more
+  ID        OWNER      SUBMITTED   RUN_TIME     ST    COMPLETED  CMD
+  56235.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56237.0   userid     6/3 22:28   0+00:09:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56234.0   userid     6/3 22:28   0+00:10:12   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56233.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56232.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56231.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  ... ... ommited ... ...
+
+- ID : The cluster/process id of the job.
+- OWNER : The owner of the job.
+- SUBMITTED : The month, day, hour, and minute the job was submitted to the queue.
+- RUN_TIME : Remote wall clock time accumulated by the job to date in days, hours, minutes, and seconds, given as the job ClassAd attribute RemoteWallClockTime.
+- ST : Completion status of the job (C = completed and X = removed).
+- COMPLETED : The time the job was completed.
+- CMD : The name of the executable.
 
 
 
