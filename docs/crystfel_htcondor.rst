@@ -52,7 +52,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 1.2. Preparing analysis data
 
-- Directory structure:
+**Directory structure:**
 
 .. code-block:: bash
 
@@ -103,12 +103,13 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 **[!important]**
 To use the script for generating lst file list (1_exec_file_list_script.sh), each file directory must end with a specific keyword.
-- (Ex) directories ending with 'pal40': 0000079-pal40, 0000080-pal40, ...
+
+  - (Ex) directories ending with 'pal40': 0000079-pal40, 0000080-pal40, ...
 
 **case 1 : indexamajig_htcondor directory**
-  - Use sample files in the "htcondor_sample_ori"
 
-Location of example files
+Use sample files in the "htcondor_sample_ori"
+  - please check location of example files below:
 
 .. code-block:: bash
   :caption: /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
@@ -134,14 +135,15 @@ Location of example files
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
 **case 2 : Github clone**
-  - Copy sample files in the "/pal/htcondor/hdf5_sample"
+
+Copy sample files in the "/pal/htcondor/hdf5_sample"
 
 .. code-block:: bash
   :caption: (Ex) Copy data sets 
 
   [USERID@pal-ui-el7 condor]$ pw
   /pal/htcondor/hdf5
-  [USERID@pal-ui-el7 condor]$ cp -rf /pal/htcondor/hdf5 /pal/{your_path}/{your_directory}/
+  [USERID@pal-ui-el7 condor]$ cp -rf /pal/htcondor/hdf5/pal/{your_path}/{your_directory}/
   [USERID@pal-ui-el7 hdf5]# ll
   total 64
   drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000079-pal40
@@ -163,10 +165,11 @@ Location of example files
   
 **case 3 : Use your own file**
 
-  Copy your own data sets to the location below:
-  - copyFile location : /pal/{your_path}/{your_directory}/hdf5
+Copy your own data sets to the location below:
+
+   - copyFile location : /pal/{your_path}/{your_directory}/hdf5
   
-  Please refer to the directory structure in the section "1.2. Preparing analysis data".
+*Note* : Please refer to the directory structure in the section "1.2. Preparing analysis data".
 
 
 2.2 Generating CXI file list
@@ -174,7 +177,7 @@ Location of example files
 
 **Excute '1_exec_file_list_script.sh' script**
   
-- Please change the 'target' value to whatever you want (Default : ../{your_path}/{your_directory}/hdf5/indexamajig_htcondor/file_list)
+Step 1 : Please change the 'target' value to whatever you want (Default : ../{your_path}/{your_directory}/hdf5/indexamajig_htcondor/file_list)
   
 .. code-block:: bash
   :caption: 1_exec_file_list_script.sh
@@ -183,7 +186,9 @@ Location of example files
   # Please change directory name what you want
   target="file_list"
 
-- Excute
+Step 2 : Run
+
+  - "-d" : applies to directories within the hdf5 directory that contain the keyword(default:pal).
 
 .. code-block:: bash
   :caption: Usage: ./1_exec_file_list_script.sh -d pal40 (default:pal)
@@ -200,7 +205,8 @@ Location of example files
   ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
   ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
   
-- Result
+
+**Result**
   
 .. code-block:: bash
   :caption: created lst file list
@@ -226,7 +232,8 @@ Location of example files
 ===================================================
 
 Submitting jobs to HTCondor based on indexamajig inputs
-- Sequentially submit jobs for each input geom file(s) and lst file(s)
+  
+  - Sequentially submit jobs for each input geom file(s) and lst file(s)
 
 .. code-block:: bash
   :caption: submit_condor_indexing job submit example
@@ -235,11 +242,11 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
 - "-g" : specific geometry file or directory(multiful geom files)
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
-- "-j" : CPU number[2]_
+- "-j" : Numbers of CPU[2]_
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
-- "-e" : another parameter such as -p, --int-radius, --threshold, --min-srn, --min-fradient
+- "-e" : another parameters such as -p, --int-radius, --threshold, --min-srn, --min-fradient
 
 .. [2] max 72 cores
 
@@ -261,7 +268,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
   lst_dir="" # Do not assign a value. -f option parameter
   
   # Output
-  # 'stream_foler' and 'log' directories are required. Please change directories what you want.
+  # 'stream_dir' and 'log' directories are required. Please change directories what you want.
   # Default directory are 'file_stream' and 'log'
   stream_dir="file_stream"
   log="log"
@@ -286,17 +293,17 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - **file_list** : directory for multiful lst files 
 
 .. code-block:: bash
-  :caption: multiful geom and multiful lst
+  :caption: multiful geoms and multiful lsts
   
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
 .. code-block:: bash 
-  :caption: multiful geom and single lst
+  :caption: multiful geoms and single lst
   
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
 .. code-block:: bash 
-  :caption: sigle geom and multiful lst
+  :caption: sigle geom and multiful lsts
   
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
@@ -322,17 +329,17 @@ Condor_manual : `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documen
   
   Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
   
-  Check job status and errors: `*Analyzing Jobs in HTCondor* <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_
+  Check job status and errors: `Analyzing Jobs in HTCondor <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_
     - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
     - `condor_q -better-analyze {JOB_IDS}`: more detailed analysis compared to -analyze
     - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
 
-  *Note* : If there are existing jobs submitted by other users, resource allocation might be delayed according to `*scheduling policies* <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_. Please Refer to the *HTCondor References* chapter for information on job queue and priority.
+  *Note* : If there are existing jobs submitted by other users, resource allocation might be delayed according to `scheduling policies <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_. Please Refer to the *HTCondor References* chapter for information on job queue and priority.
 
 4.2. HTCondor Resource Status
 ====================================================================================================
 
-  - You can check the status of Condor resources:
+  You can check the status of Condor resources:
     - Verify the allocation (Claimed) status of jobs on each Worker Node.
 
 Example:
