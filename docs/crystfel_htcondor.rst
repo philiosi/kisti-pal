@@ -22,19 +22,23 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 .. code-block:: bash
 
+  # check sample files location
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
   /pal/htcondor/
-  # check sample files location
 
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori.tar /pal/{home, data}/{your_path}
   # Copy the tar file to the specified paths
-   
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori.tar /pal/{home, data}/{your_path}
+
+  # Change to /pal/{home, data}/{your_path} directory 
   [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
-  # Change to /pal/{home, data}/{your_path} directory
-
-  [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
+  
   # Extract the tar file
-
+  [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
+  
+  # Get updated script file from github
+  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/2_submit_condor_indexing.sh
+  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/2_submit_condor_indexing.sh
+  
 **case 2 : Github clone**
 
 .. code-block:: bash
