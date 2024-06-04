@@ -71,6 +71,7 @@ To analyze jobs that are in the *IDLE/HOLD* state in HTCondor, you can use the `
       condor_q -analyze {JOB_ID}
 
    Example:
+   
    .. code-block:: console
 
       condor_q -analyze 123.0
@@ -83,6 +84,7 @@ To analyze jobs that are in the *IDLE/HOLD* state in HTCondor, you can use the `
       condor_q -better-analyze {JOB_ID}
 
    Example:
+
    .. code-block:: console
 
       condor_q -better-analyze 123.0
