@@ -13,9 +13,9 @@ Indexamajig_condorjob example
 
 1.1. Preparing Analysis Script
 
-Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
+Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`)[^1] or the group folder (`/pal/data/{group_dir}/{your_dir}`)[^2].
 
-[^1 ^2]: In this example, create a "condor" folder in the account home directory or the group folder.
+[^1] [^2]: In this example, create your directory in the your home or the group directory.
 
 **case 1 : Copy indexamajig_htcondor directory**
 
