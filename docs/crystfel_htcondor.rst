@@ -13,9 +13,9 @@ Indexamajig_condorjob example
 
 1.1. Preparing Analysis Script
 
-Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`)[^1] or the group folder (`/pal/data/{group_dir}/{your_dir}`)[^2].
+Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`)[1]_ or the group folder (`/pal/data/{group_dir}/{your_dir}`)[2]_.
 
-[^1] [^2]: In this example, create your directory in the your home or the group directory.
+..[1] ..[2]: In this example, create your directory in the your home or the group directory.
 
 **case 1 : Copy indexamajig_htcondor directory**
 
@@ -241,13 +241,13 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
 - "-g" : specific geometry file or directory(multiful geom files)
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
-- "-j" : Numbers of CPU[2]_
+- "-j" : Numbers of CPU[3]_
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
 - "-e" : another parameters such as -p, --int-radius, --threshold, --min-srn, --min-fradient
 
-.. [2] max 72 cores
+.. [3] max 72 cores
 
 3.2 Output Setting
 ===================================================
