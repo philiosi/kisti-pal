@@ -58,10 +58,10 @@ Checking Condor Job Queue
 
   - Shows jobs submitted by other users across all UI nodes (pal-ui-el7.sdfarm.kr, pal-ui02-el7.sdfarm.kr).
 
-Analyzing IDLE Jobs in HTCondor
+Analyzing Jobs in HTCondor
 ----------------------------------------------------------------------------
 
-To analyze jobs that are in the IDLE state in HTCondor, you can use the `condor_q` command with the `-analyze` or `-better-analyze` options. These options provide detailed information about why a job is in the IDLE state and suggest potential reasons for scheduling issues.
+To analyze jobs that are in the *IDLE/HOLD* state in HTCondor, you can use the `condor_q` command with the `-analyze` or `-better-analyze` options. These options provide detailed information about why a job is in the IDLE state and suggest potential reasons for scheduling issues.
 
 1. Use `condor_q -analyze`:
    - This command provides a basic analysis of the job's status and reasons why it might not be running.

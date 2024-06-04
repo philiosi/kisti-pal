@@ -318,14 +318,16 @@ Condor_manual : `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documen
 4.1. Checking the Condor Queue after Running 2_exec_condor_indexing.sh
 ====================================================================================================
 
-  - Verify the Condor queue status (condor_q) after executing 2_exec_condor_indexing.sh.
-  - Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
-  - Check job status and errors:
+  Verify the Condor queue status (condor_q) after executing *2_exec_condor_indexing.sh*.
+  
+  Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
+  
+  Check job status and errors: `Analyzing Jobs in HTCondor <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_
     - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
+    - `condor_q -better-analyze {JOB_IDS}`: more detailed analysis compared to -analyze
     - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
 
-  - If there are existing jobs submitted by other users, resource allocation might be delayed according to scheduling policies.
-    - Refer to "3) HTCondor References" for information on job queue and priority.
+  *Note* : If there are existing jobs submitted by other users, resource allocation might be delayed according to scheduling policies. Please Refer to the *HTCondor References* chapter for information on job queue and priority.
 
 4.2. HTCondor Resource Status
 ====================================================================================================
