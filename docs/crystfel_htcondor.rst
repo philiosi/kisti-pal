@@ -106,7 +106,7 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
 
   - (Ex) directories ending with 'pal40': 0000079-pal40, 0000080-pal40, ...
 
-**case 1 : indexamajig_htcondor directory**
+**CASE 1 : indexamajig_htcondor directory**
 
 Use sample files in the "htcondor_sample_ori"
   - please check location of example files below:
@@ -134,8 +134,7 @@ Use sample files in the "htcondor_sample_ori"
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
-**case 2 : Github clone**
-
+**CASE 2 : Github clone**
 Copy sample files in the "/pal/htcondor/hdf5_sample"
 
 .. code-block:: bash
@@ -163,7 +162,7 @@ Copy sample files in the "/pal/htcondor/hdf5_sample"
   drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000102-pal40
   drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000103-pal40
   
-**case 3 : Use your own file**
+**CASE 3 : Use your own file**
 
 Copy your own data sets to the location below:
 
