@@ -32,9 +32,17 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
   # Extract the tar file
   [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
   
+   # Script(1_exec_file_list_script.sh) update from github
+  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/1_exec_file_list_script.sh
+  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/1_exec_file_list_script.sh
+
   # Script(2_submit_condor_indexing.sh) update from github
   [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/2_submit_condor_indexing.sh
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/2_submit_condor_indexing.sh
+
+  # Script(3_exec_indexing.sh) update from github
+  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/3_exec_indexing.sh
+  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
   
 **case 2 : Github clone**
 
