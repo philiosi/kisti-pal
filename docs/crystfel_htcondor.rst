@@ -44,6 +44,11 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
   [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/3_exec_indexing.sh
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
   
+*Note* : Please do not miss download updated script from github.
+  - 1_exec_file_list_script.sh
+  - 2_submit_condor_indexing.sh
+  - 3_exec_indexing.sh
+
 **case 2 : Github clone**
 
 .. code-block:: bash
