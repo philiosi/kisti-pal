@@ -13,10 +13,7 @@ Indexamajig_condorjob example
 
 1.1. Preparing Analysis Script
 
-Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`)[1]_ or the group folder (`/pal/data/{group_dir}/{your_dir}`)[2]_.
-
-.. [1] This is example.
-.. [2] This is example.
+Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`) or the group folder (`/pal/data/{group_dir}/{your_dir}`).
 
 **case 1 : Copy indexamajig_htcondor directory**
 
@@ -35,7 +32,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
   # Extract the tar file
   [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
   
-  # Get updated script file from github
+  # Script(2_submit_condor_indexing.sh) update from github
   [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/2_submit_condor_indexing.sh
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/2_submit_condor_indexing.sh
   
@@ -246,13 +243,13 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
 - "-g" : specific geometry file or directory(multiful geom files)
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
-- "-j" : Numbers of CPU[3]_
+- "-j" : Numbers of CPU[1]_
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
 - "-e" : another parameters such as -p, --int-radius, --threshold, --min-srn, --min-fradient
 
-.. [3] max 72 cores
+.. [1] max 72 cores
 
 3.2 Output Setting
 ===================================================
