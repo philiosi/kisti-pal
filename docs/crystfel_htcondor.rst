@@ -35,14 +35,17 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
    # Script(1_exec_file_list_script.sh) update from github
   [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/1_exec_file_list_script.sh
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/1_exec_file_list_script.sh
+  [USERID@pal-ui-el7 your_path] chmod ug+x 1_exec_file_list_script.sh
 
   # Script(2_submit_condor_indexing.sh) update from github
   [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/2_submit_condor_indexing.sh
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/2_submit_condor_indexing.sh
+  [USERID@pal-ui-el7 your_path] chmod ug+x 2_submit_condor_indexing.sh
 
   # Script(3_exec_indexing.sh) update from github
   [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/3_exec_indexing.sh
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
+  [USERID@pal-ui-el7 your_path] chmod ug+x 3_exec_indexing.sh
   
 *Note* : Please do not miss download updated script from github.
   - 1_exec_file_list_script.sh
@@ -185,6 +188,20 @@ Copy your own data sets to the location below:
   
 *Note* : Please refer to the directory structure in the section "1.2. Preparing analysis data".
 
+Create your own `lst` file(s) wherever you want. 
+.. code-block:: bash
+  :caption: Example of multiple cxi files in a single lst file
+
+  # relative path
+  ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi    
+  ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
+  # absolute path
+  /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
+  
+Create your own `lst` file(s) wherever you want.
+
+.. warning::
+   When executing `./2_submit_condor_indexing.sh`, make sure to clearly specify the path (absolute or relative) of the `lst` file with the `-f` option.
 
 2.2 Generating CXI file list
 ===================================================
@@ -227,17 +244,28 @@ Step 2 : Run
     
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ll ./file_list/
   total 209
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0079c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0080c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c01.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c01.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0083c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0084c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0080c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c01.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0082c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0082c01.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0083c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0084c00.lst
   [USERID@pal-ui-el7 indexamajig_htcondor]$ cat ./file_list/r0079c00.lst
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi
  
+- `1_exec_file_list_script.sh` generates each `lst` file containing the relative path to one `cxi` file.
+- When creating `lst` files manually, multiple `cxi` files can be listed within a single `lst` file for analysis. Both absolute and relative paths for `cxi` files are allowed.
+
+.. code-block:: bash
+  :caption: Example of multiple cxi files in a single lst file
+
+  # relative path
+  ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi    
+  ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
+  # absolute path
+  /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
+  
 ---------------------------------------------------
 3 Submit indexamajig condor jobs
 ---------------------------------------------------
