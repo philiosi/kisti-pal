@@ -189,6 +189,7 @@ Copy your own data sets to the location below:
 *Note* : Please refer to the directory structure in the section "1.2. Preparing analysis data".
 
 Create your own `lst` file(s) wherever you want. 
+
 .. code-block:: bash
   :caption: Example of multiple cxi files in a single lst file
 
@@ -354,6 +355,8 @@ Submitting jobs to HTCondor based on indexamajig inputs
   
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
+.. warning::
+  Make sure to check if the paths (absolute/relative) of the files to be entered for each option(`-g`, `-f`, `-o`, `-p`) are correct based on the path of the `./2_submit_condor_indexing.sh` script to be executed.
 
 ---------------------------------------------------
 4 HTCondor job managing 
