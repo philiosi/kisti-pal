@@ -182,13 +182,13 @@ Copy sample files in the "/pal/htcondor/hdf5_sample"
   
 **CASE 3 : Use your own file**
 
-Copy your own data sets to the location below:
+Step 1. Copy your own data sets to the location below:
 
    - copyFile location : /pal/{your_path}/{your_directory}/hdf5
   
 *Note* : Please refer to the directory structure in the section "1.2. Preparing analysis data".
 
-Create your own `lst` file(s) wherever you want. 
+Step 2. Create your own `lst` file(s) wherever you want.
 
 .. code-block:: bash
   :caption: Example of multiple cxi files in a single lst file
@@ -198,11 +198,9 @@ Create your own `lst` file(s) wherever you want.
   ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
   # absolute path
   /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
-  
-Create your own `lst` file(s) wherever you want.
 
 .. warning::
-   When executing `./2_submit_condor_indexing.sh`, make sure to clearly specify the path (absolute or relative) of the `lst` file with the `-f` option.
+  When executing `./2_submit_condor_indexing.sh`, make sure to clearly specify the path (absolute or relative) of the `lst` file with the `-f` option.
 
 2.2 Generating CXI file list
 ===================================================
@@ -356,7 +354,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
 
 .. warning::
-  Make sure to check if the paths (absolute/relative) of the files to be entered for each option(`-g`, `-f`, `-o`, `-p`) are correct based on the path of the `./2_submit_condor_indexing.sh` script to be executed.
+  Make sure to check the paths (absolute/relative) of the files for each option(`-g`, `-f`, `-o`, `-p`) are correct.
 
 ---------------------------------------------------
 4 HTCondor job managing 
