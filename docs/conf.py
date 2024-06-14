@@ -63,3 +63,8 @@ html_static_path = ['_static']
 html_css_files = [
     'css/css-style.css',
 ]
+
+html_meta = {
+    'description': 'This document is user guide for KISTI-PAL computing service.',
+    'keywords': 'KISTI, GSDC, PAL, GUIDE',
+}
