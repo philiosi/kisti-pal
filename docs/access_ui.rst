@@ -33,20 +33,21 @@ To access the UI nodes, use the following SSH commands:
 
 .. code-block:: sh
 
-    ssh -Y -p 4280 <kisti_account>@pal-ui-el7.sdfarm.kr
+    ssh -Y -p XXXX <kisti_account>@pal-ui-el7.sdfarm.kr
 
 OR
 
 .. code-block:: sh
 
-    ssh -Y -p 4280 <kisti_account>@pal-ui02-el7.sdfarm.kr
+    ssh -Y -p XXXX <kisti_account>@pal-ui02-el7.sdfarm.kr
 
 OR
 
 .. code-block:: sh
 
-    ssh -Y -p 4280 <kisti_account>@pal-ui.sdfarm.kr
+    ssh -Y -p XXXX <kisti_account>@pal-ui.sdfarm.kr
 
+- The SSH port number will be provided upon account creation.
 - Only nodes with a registered public IP are accessible. \
   Note: If you have a private IP address as shown below, please ask to your IT support team to get the public IP address to way out from your building.
 

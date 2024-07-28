@@ -10,7 +10,8 @@ SFTP (Secure File Transfer Protocol, SecureFTP)
 You can access PAL UI server by FTP software like Filezilla, winSCP, etc.
     - Protocol: SFTP or SCP
     - Host: pal-ui-el7.sdfarm.kr / pal-ui02-el7.sdfarm.kr / pal-ui.sdfarm.kr
-    - Port: 4280
+    - Port: XXXX
+        * The SSH port number will be provided upon account creation.
     - Account: KISTI account and password
         * Note: please refer to the `OTP Guide - Login with OTP <https://gsdc-farm.gitbook.io/gsdc-otp/generate-otp>`_. 
     
