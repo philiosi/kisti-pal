@@ -15,21 +15,23 @@ Indexamajig_condorjob example
 
 Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
 
-[^1 ^2]: In this example, create a "condor" folder in the account home directory or the group folder.
+[^1 ^2]: In this example, copy the "htcondor_sample_ori" directory in the account home directory or the group directory.
 
 **case 1 : Copy indexamajig_htcondor directory**
 
 .. code-block:: bash
 
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-  /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor /pal/{home, data}/condor/
+  /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori /pal/{home,data}/htcondor_sample
 
 **case 2 : Github clone**
 
 .. code-block:: bash
     
-    [USERID@pal-ui-el7 condor]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
+    [USERID@pal-ui-el7 htcondor_sample]$ pwd
+    /pal/{home,data}/htcondor_sample
+    [USERID@pal-ui-el7 htcondor_sample]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
     Cloning into 'indexamajig_htcondor'...
     remote: Enumerating objects: 80, done.
     remote: Counting objects: 100% (80/80), done.
@@ -43,7 +45,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 .. code-block:: bash
 
-    {condor}
+    {htcondor_sample}
     ├── [0000079-pal40]                     # data sample
     │   ├── cheetah.ini
     │   ├── cheetah.out
@@ -93,26 +95,13 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 Location of example files
 
 .. code-block:: bash
-  :caption: /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+  :caption: /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
 
-  [USERID@pal-ui-el7 condor]$ ll /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/
+  [USERID@pal-ui-el7 condor]$ ll /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
   total 104
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
 To use the script for generating lst file list (1_exec_file_list_script.sh), each file directory must end with a specific keyword.
@@ -121,11 +110,11 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
 .. code-block:: bash
   :caption: (Ex) Copy six data sets from 0000079-pal40 to 0000084-pal40
 
-  [USERID@pal-ui-el7 condor]$ cp -rf /pal/data/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home, data}/{your_directory}
+  [USERID@pal-ui-el7 condor]$ cp -rf /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home,data}/{your_directory}/
   
 **case 2) Use your own file**
 
-  File location : /pal/{home, data}/{your_directory}
+  File location : /pal/{home,data}/{your_directory}
   (Refer to the "2.1.2. Preparing files for analysis")
 
 
@@ -155,11 +144,6 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi r0079c00 
   ../0000080-pal40/ue_191027_SFX-r0080-c00.cxi r0080c00 
   ../0000081-pal40/ue_191027_SFX-r0081-c00.cxi r0081c00 
-  ../0000081-pal40/ue_191027_SFX-r0081-c01.cxi r0081c01 
-  ../0000082-pal40/ue_191027_SFX-r0082-c00.cxi r0082c00
-  ../0000082-pal40/ue_191027_SFX-r0082-c01.cxi r0082c01
-  ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
-  ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
   
 - Result
   
@@ -168,14 +152,9 @@ To use the script for generating lst file list (1_exec_file_list_script.sh), eac
     
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ll ./file_list/
   total 209
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0079c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0080c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0081c01.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0082c01.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0083c00.lst
-  -rwxr-x---. 1 shna shna 45 Sep 25 13:30 r0084c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0079c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0080c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c00.lst
   [USERID@pal-ui-el7 indexamajig_htcondor]$ cat ./file_list/r0079c00.lst
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi
  
@@ -198,7 +177,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
 - "-j" : CPU number[2]_
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
-- "-o" : stream file
+- "-o" : stream file name
 - "-p" : pdb file
 
 .. [2] max 72 cores
