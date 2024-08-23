@@ -13,9 +13,7 @@ Indexamajig_condorjob example
 
 1.1. Preparing Analysis Script
 
-Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
-
-[^1 ^2]: In this example, copy the "htcondor_sample_ori" directory in the account home directory or the group directory.
+Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`) or the group folder (`/pal/data/{group_dir}/{your_dir}`).
 
 **case 1 : Copy indexamajig_htcondor directory**
 
@@ -23,22 +21,52 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
   # check sample files location
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-  /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori /pal/{home,data}/htcondor_sample
+  /pal/htcondor/
+
+  # Copy the tar file to the specified paths
+  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori.tar /pal/{home, data}/{your_path}
+
+  # Change to /pal/{home, data}/{your_path} directory 
+  [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
+  
+  # Extract the tar file
+  [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
+  
+   # Script(1_exec_file_list_script.sh) update from github
+  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/1_exec_file_list_script.sh
+  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/1_exec_file_list_script.sh
+  [USERID@pal-ui-el7 your_path] chmod ug+x 1_exec_file_list_script.sh   # Granting Execution Permission
+
+  # Script(2_submit_condor_indexing.sh) update from github
+  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/2_submit_condor_indexing.sh
+  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/2_submit_condor_indexing.sh
+  [USERID@pal-ui-el7 your_path] chmod ug+x 2_submit_condor_indexing.sh  # Granting Execution Permission
+
+  # Script(3_exec_indexing.sh) update from github
+  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/3_exec_indexing.sh
+  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
+  [USERID@pal-ui-el7 your_path] chmod ug+x 3_exec_indexing.sh           # Granting Execution Permission
+  
+*Note* : Please do not miss download updated script from github.
+  - 1_exec_file_list_script.sh
+  - 2_submit_condor_indexing.sh
+  - 3_exec_indexing.sh
 
 **case 2 : Github clone**
 
 .. code-block:: bash
-    
-    [USERID@pal-ui-el7 htcondor_sample]$ pwd
-    /pal/{home,data}/htcondor_sample
-    [USERID@pal-ui-el7 htcondor_sample]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
-    Cloning into 'indexamajig_htcondor'...
-    remote: Enumerating objects: 80, done.
-    remote: Counting objects: 100% (80/80), done.
-    remote: Compressing objects: 100% (60/60), done.
-    remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
-    Unpacking objects: 100% (80/80), done.
+  
+  [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
+  # Change to /pal/{home, data}/{your_path} directory. 
+  # If you need, then create {your_path} directory using "mkdir {your_path}" commnad.
+
+  [USERID@pal-ui-el7 your_path]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
+  Cloning into 'indexamajig_htcondor'...
+  remote: Enumerating objects: 80, done.
+  remote: Counting objects: 100% (80/80), done.
+  remote: Compressing objects: 100% (60/60), done.
+  remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
+  Unpacking objects: 100% (80/80), done.
 
 1.2. Preparing analysis data
 
@@ -46,7 +74,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 .. code-block:: bash
 
-    {htcondor_sample}
+    [hdf5]
     ├── [0000079-pal40]                     # data sample
     │   ├── cheetah.ini
     │   ├── cheetah.out
@@ -65,6 +93,9 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     │   └── ue_191027_SFX-r0079-c00.h5
     ├── [0000080-pal40]
     ├── [0000081-pal40]
+    ├── [0000082-pal40]
+    ├── [0000083-pal40]
+    ├── [0000084-pal40]
     └── [indexamajig_htcondor]              # code base directory
         ├── 1_exec_file_list_script.sh      # [script] create lst list
         ├── 2_submit_condor_indexing.sh     # [script] submit indexamajig condor job
@@ -99,13 +130,26 @@ Use sample files in the "htcondor_sample_ori"
   - please check location of example files below:
 
 .. code-block:: bash
-  :caption: /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
+  :caption: /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
 
-  [USERID@pal-ui-el7 condor]$ ll /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
+  [USERID@pal-ui-el7 hdf5]$ ll /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
   total 104
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
+  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
 **CASE 2 : Github clone**
@@ -114,12 +158,31 @@ Copy sample files in the "/pal/htcondor/hdf5_sample"
 .. code-block:: bash
   :caption: (Ex) Copy data sets 
 
-  [USERID@pal-ui-el7 condor]$ cp -rf /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/{0000079..0000084}-pal40 /pal/{home,data}/{your_directory}/
+  [USERID@pal-ui-el7 condor]$ pw
+  /pal/htcondor/hdf5
+  [USERID@pal-ui-el7 condor]$ cp -rf /pal/htcondor/hdf5/pal/{your_path}/{your_directory}/
+  [USERID@pal-ui-el7 hdf5]# ll
+  total 64
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000079-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000080-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000081-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000082-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000083-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000084-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000085-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000086-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000087-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000088-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000089-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000090-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000091-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000101-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000102-pal40
+  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000103-pal40
   
 **CASE 3 : Use your own file**
 
-  File location : /pal/{home,data}/{your_directory}
-  (Refer to the "2.1.2. Preparing files for analysis")
+Step 1. Copy your own data sets to the location below:
 
    - copyFile location : /pal/{your_path}/{your_directory}/hdf5
   
@@ -128,10 +191,11 @@ Copy sample files in the "/pal/htcondor/hdf5_sample"
 Step 2. Create your own `lst` file(s) wherever you want.
 
 .. code-block:: bash
-  :caption: Example of lst file
+  :caption: Example of multiple cxi files in a single lst file
 
   # relative path
   ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi    
+  ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
   # absolute path
   /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
 
@@ -165,6 +229,11 @@ Step 2 : Run
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi r0079c00 
   ../0000080-pal40/ue_191027_SFX-r0080-c00.cxi r0080c00 
   ../0000081-pal40/ue_191027_SFX-r0081-c00.cxi r0081c00 
+  ../0000081-pal40/ue_191027_SFX-r0081-c01.cxi r0081c01 
+  ../0000082-pal40/ue_191027_SFX-r0082-c00.cxi r0082c00
+  ../0000082-pal40/ue_191027_SFX-r0082-c01.cxi r0082c01
+  ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
+  ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
   
 
 **Result**
@@ -174,9 +243,13 @@ Step 2 : Run
     
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ll ./file_list/
   total 209
-  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0079c00.lst
   -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0080c00.lst
   -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c01.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0082c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0082c01.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0083c00.lst
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0084c00.lst
   [USERID@pal-ui-el7 indexamajig_htcondor]$ cat ./file_list/r0079c00.lst
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi
  
@@ -212,7 +285,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
 - "-j" : Numbers of CPU[1]_
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
-- "-o" : stream file name
+- "-o" : stream file
 - "-p" : pdb file
 - "-e" : another parameters such as -p, --int-radius, --threshold, --min-srn, --min-fradient
 
@@ -398,6 +471,5 @@ Example:
 - ST : Completion status of the job (C = completed and X = removed).
 - COMPLETED : The time the job was completed.
 - CMD : The name of the executable.
-
 
 
