@@ -22,7 +22,7 @@ copyright = '2023, GSDC'
 author = 'Sang-Ho Na'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1'
+release = '1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -63,3 +63,8 @@ html_static_path = ['_static']
 html_css_files = [
     'css/css-style.css',
 ]
+
+html_meta = {
+    'description': 'This document is user guide for KISTI-PAL computing service.',
+    'keywords': 'KISTI, GSDC, PAL, GUIDE',
+}
