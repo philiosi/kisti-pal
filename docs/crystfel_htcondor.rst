@@ -13,13 +13,9 @@ Indexamajig_condorjob example
 
 1.1. Preparing Analysis Script
 
-<<<<<<< HEAD
 Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/condor`)[^1] or the group folder (`/pal/data/{group_dir}/condor`)[^2].
 
 [^1 ^2]: In this example, copy the "htcondor_sample_ori" directory in the account home directory or the group directory.
-=======
-Copy the `indexamajig_condorjob` script or the GitHub code to either the account home directory (`/pal/home/{account}/{your_dir}`) or the group folder (`/pal/data/{group_dir}/{your_dir}`).
->>>>>>> 2aae0cd581d5d7fbaaece609fc891db033a99a22
 
 **case 1 : Copy indexamajig_htcondor directory**
 
@@ -27,46 +23,12 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
   # check sample files location
   [USERID@pal-ui-el7 indexamajig_htcondor]$ pwd
-<<<<<<< HEAD
   /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor
   [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori /pal/{home,data}/htcondor_sample
-=======
-  /pal/htcondor/
-
-  # Copy the tar file to the specified paths
-  [USERID@pal-ui-el7 ~]$ cp -rf /pal/htcondor/htcondor_sample_ori.tar /pal/{home, data}/{your_path}
-
-  # Change to /pal/{home, data}/{your_path} directory 
-  [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
-  
-  # Extract the tar file
-  [USERID@pal-ui-el7 your_path] tar xvf indexamajig_htcondor_ori.tar
-  
-   # Script(1_exec_file_list_script.sh) update from github
-  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/1_exec_file_list_script.sh
-  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/1_exec_file_list_script.sh
-  [USERID@pal-ui-el7 your_path] chmod ug+x 1_exec_file_list_script.sh   # Granting Execution Permission
-
-  # Script(2_submit_condor_indexing.sh) update from github
-  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/2_submit_condor_indexing.sh
-  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/2_submit_condor_indexing.sh
-  [USERID@pal-ui-el7 your_path] chmod ug+x 2_submit_condor_indexing.sh  # Granting Execution Permission
-
-  # Script(3_exec_indexing.sh) update from github
-  [USERID@pal-ui-el7 your_path] rm -rf {your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/indexamajig_htcondor/3_exec_indexing.sh
-  [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
-  [USERID@pal-ui-el7 your_path] chmod ug+x 3_exec_indexing.sh           # Granting Execution Permission
-  
-*Note* : Please do not miss download updated script from github.
-  - 1_exec_file_list_script.sh
-  - 2_submit_condor_indexing.sh
-  - 3_exec_indexing.sh
->>>>>>> 2aae0cd581d5d7fbaaece609fc891db033a99a22
 
 **case 2 : Github clone**
 
 .. code-block:: bash
-<<<<<<< HEAD
     
     [USERID@pal-ui-el7 htcondor_sample]$ pwd
     /pal/{home,data}/htcondor_sample
@@ -77,20 +39,6 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     remote: Compressing objects: 100% (60/60), done.
     remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
     Unpacking objects: 100% (80/80), done.
-=======
-  
-  [USERID@pal-ui-el7 ~]$ cd /pal/{home, data}/{your_path}
-  # Change to /pal/{home, data}/{your_path} directory. 
-  # If you need, then create {your_path} directory using "mkdir {your_path}" commnad.
-
-  [USERID@pal-ui-el7 your_path]$ git clone https://github.com/philiosi/indexamajig_htcondor.git
-  Cloning into 'indexamajig_htcondor'...
-  remote: Enumerating objects: 80, done.
-  remote: Counting objects: 100% (80/80), done.
-  remote: Compressing objects: 100% (60/60), done.
-  remote: Total 80 (delta 39), reused 47 (delta 16), pack-reused 0
-  Unpacking objects: 100% (80/80), done.
->>>>>>> 2aae0cd581d5d7fbaaece609fc891db033a99a22
 
 1.2. Preparing analysis data
 
@@ -98,11 +46,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 .. code-block:: bash
 
-<<<<<<< HEAD
     {htcondor_sample}
-=======
-    [hdf5]
->>>>>>> 2aae0cd581d5d7fbaaece609fc891db033a99a22
     ├── [0000079-pal40]                     # data sample
     │   ├── cheetah.ini
     │   ├── cheetah.out
@@ -121,9 +65,6 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     │   └── ue_191027_SFX-r0079-c00.h5
     ├── [0000080-pal40]
     ├── [0000081-pal40]
-    ├── [0000082-pal40]
-    ├── [0000083-pal40]
-    ├── [0000084-pal40]
     └── [indexamajig_htcondor]              # code base directory
         ├── 1_exec_file_list_script.sh      # [script] create lst list
         ├── 2_submit_condor_indexing.sh     # [script] submit indexamajig condor job
@@ -158,15 +99,9 @@ Use sample files in the "htcondor_sample_ori"
   - please check location of example files below:
 
 .. code-block:: bash
-<<<<<<< HEAD
   :caption: /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
 
   [USERID@pal-ui-el7 condor]$ ll /pal/htcondor/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
-=======
-  :caption: /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
-
-  [USERID@pal-ui-el7 hdf5]$ ll /pal/{your_path}/htcondor_sample_ori/ue_191027_SFX/proc/cheetah/hdf5/
->>>>>>> 2aae0cd581d5d7fbaaece609fc891db033a99a22
   total 104
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
@@ -193,11 +128,10 @@ Copy sample files in the "/pal/htcondor/hdf5_sample"
 Step 2. Create your own `lst` file(s) wherever you want.
 
 .. code-block:: bash
-  :caption: Example of multiple cxi files in a single lst file
+  :caption: Example of lst file
 
   # relative path
   ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi    
-  ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
   # absolute path
   /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
 
