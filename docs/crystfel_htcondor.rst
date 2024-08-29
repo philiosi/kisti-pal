@@ -93,9 +93,6 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
     │   └── ue_191027_SFX-r0079-c00.h5
     ├── [0000080-pal40]
     ├── [0000081-pal40]
-    ├── [0000082-pal40]
-    ├── [0000083-pal40]
-    ├── [0000084-pal40]
     └── [indexamajig_htcondor]              # code base directory
         ├── 1_exec_file_list_script.sh      # [script] create lst list
         ├── 2_submit_condor_indexing.sh     # [script] submit indexamajig condor job
@@ -137,19 +134,6 @@ Use sample files in the "htcondor_sample_ori"
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000079-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:20 0000080-pal40
   drwxr-x---. 2 pal pal_users  4096 Sep  6 11:21 0000081-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000082-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000083-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:22 0000084-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000085-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000086-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:23 0000087-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000088-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000089-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:24 0000090-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000091-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:25 0000101-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000102-pal40
-  drwxr-x---. 2 pal pal_users  4096 Sep  6 11:26 0000103-pal40
   drwxrwx---. 6 pal pal_users  4096 Sep 22 15:28 indexamajig_htcondor
 
 **CASE 2 : Github clone**
@@ -166,19 +150,6 @@ Copy sample files in the "/pal/htcondor/hdf5_sample"
   drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000079-pal40
   drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000080-pal40
   drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000081-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000082-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000083-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000084-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000085-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000086-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000087-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000088-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000089-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000090-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000091-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000101-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000102-pal40
-  drwxrwx---. 2 pal pal_users 4096 Jun  3 13:19 0000103-pal40
   
 **CASE 3 : Use your own file**
 
@@ -191,11 +162,10 @@ Step 1. Copy your own data sets to the location below:
 Step 2. Create your own `lst` file(s) wherever you want.
 
 .. code-block:: bash
-  :caption: Example of multiple cxi files in a single lst file
+  :caption: Example of cxi file in a single lst file
 
   # relative path
   ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi    
-  ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
   # absolute path
   /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
 
@@ -229,12 +199,7 @@ Step 2 : Run
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi r0079c00 
   ../0000080-pal40/ue_191027_SFX-r0080-c00.cxi r0080c00 
   ../0000081-pal40/ue_191027_SFX-r0081-c00.cxi r0081c00 
-  ../0000081-pal40/ue_191027_SFX-r0081-c01.cxi r0081c01 
-  ../0000082-pal40/ue_191027_SFX-r0082-c00.cxi r0082c00
-  ../0000082-pal40/ue_191027_SFX-r0082-c01.cxi r0082c01
-  ../0000083-pal40/ue_191027_SFX-r0083-c00.cxi r0083c00 
-  ../0000084-pal40/ue_191027_SFX-r0084-c00.cxi r0084c00
-  
+  ../0000081-pal40/ue_191027_SFX-r0081-c01.cxi r0081c01   
 
 **Result**
   
@@ -243,25 +208,22 @@ Step 2 : Run
     
   [USERID@pal-ui-el7 indexamajig_htcondor]$ ll ./file_list/
   total 209
+  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0079c00.lst
   -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0080c00.lst
   -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c00.lst
   -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0081c01.lst
-  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0082c00.lst
-  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0082c01.lst
-  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0083c00.lst
-  -rwxr-x---. 1 USERID USERID 45 Sep 25 13:30 r0084c00.lst
   [USERID@pal-ui-el7 indexamajig_htcondor]$ cat ./file_list/r0079c00.lst
   ../0000079-pal40/ue_191027_SFX-r0079-c00.cxi
  
 - `1_exec_file_list_script.sh` generates each `lst` file containing the relative path to one `cxi` file.
-- When creating `lst` files manually, multiple `cxi` files can be listed within a single `lst` file for analysis. Both absolute and relative paths for `cxi` files are allowed.
+- You can generate `lst` files manually. Both absolute and relative paths for `cxi` files are allowed.
 
 .. code-block:: bash
-  :caption: Example of multiple cxi files in a single lst file
+  :caption: Example of a cxi file in a single lst file
 
   # relative path
-  ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi    
-  ../0000091-pal40/ue_191027_SFX-r0091-c01.cxi
+  ../0000091-pal40/ue_191027_SFX-r0091-c00.cxi
+
   # absolute path
   /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
   
@@ -287,7 +249,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
-- "-e" : another parameters such as -p, --int-radius, --threshold, --min-srn, --min-fradient
+- "-e" : another parameters such as -p, -no-check-peaks, --multi, --int-radius, --threshold, --min-srn, --min-fradient, etc.
 
 .. [1] max 72 cores
 
@@ -301,7 +263,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
   # debug print option 
   # ex) if [ $DEBUG -eq 1 ]; then echo "[debug] -f option is directory : mf"; fi
-  EBUG=1
+  DEBUG=1
   
   # Input
   # The directory location is determined based on the input parameter.
@@ -428,22 +390,27 @@ Example:
   [USERID@pal-ui-el7 log]$ cd log
   [USERID@pal-ui-el7 log]$ ll
   total 8242
-  -rw-r--r--. 1 USERID pal_users 212370 May 25 09:20 xgandalf_r0079c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID pal_users    861 May 25 08:57 xgandalf_r0079c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0079c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID pal_users 225473 May 25 09:20 xgandalf_r0080c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID pal_users    861 May 25 09:08 xgandalf_r0080c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0080c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID pal_users 160855 May 25 09:20 xgandalf_r0081c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID pal_users   1157 May 25 09:08 xgandalf_r0081c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID pal_users   1957 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.error
-  -rw-r--r--. 1 USERID pal_users   1079 May 25 08:43 xgandalf_r0081c01_SASE_1_condor.log
-  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0081c01_SASE_1_condor.out
-  -rw-r--r--. 1 USERID pal_users 190031 May 25 09:20 xgandalf_r0082c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID pal_users   1158 May 25 09:17 xgandalf_r0082c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID pal_users      0 May 25 08:42 xgandalf_r0082c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID pal_users   1820 May 25 08:43 xgandalf_r0082c01_S
+  -rw-r--r--. 1 USERID USERID  795612 Aug 29 12:00 geom_file1_xgandalf_r0079c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1838 Aug 29 12:00 geom_file1_xgandalf_r0079c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0079c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID USERID 1038891 Aug 29 12:06 geom_file1_xgandalf_r0080c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1837 Aug 29 12:06 geom_file1_xgandalf_r0080c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0080c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID USERID 1127187 Aug 29 12:08 geom_file1_xgandalf_r0081c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1162 Aug 29 12:06 geom_file1_xgandalf_r0081c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0081c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID USERID    1706 Aug 29 11:31 geom_file1_xgandalf_r0081c01_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1220 Aug 29 11:31 geom_file1_xgandalf_r0081c01_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0081c01_SASE_1_condor.out
+
+.. note::
+  The naming convention for the log and stream files is as follows:
+  
+  output = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.out
+  error = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.error
+  log = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.log
+
+  stream = file_stream/{geom_file_name}_{indexing method}_{runnum}_{streamname}.stream
 
 4.4. Job History
 ====================================================================================================
