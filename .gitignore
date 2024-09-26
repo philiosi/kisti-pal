@@ -1,3 +1,9 @@
+# sh
+*.sh
+
+# md
+*.md
+
 # vscode
 .vscode/
 
