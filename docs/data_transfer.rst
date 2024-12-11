@@ -27,6 +27,19 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
     Steps to transfer data:
 
     1. Sign up for Globus online and log in (supports CILogon, Google, ORCID iD, globus id).
+
+    2. Download "globus connect personal" and install on your personal laptop or computer.
+
+        .. image:: ../images/globusconnectpersonal.png
+            :scale: 50 %
+            :align: center
+
+        .. image:: ../images/highassurance.png
+            :scale: 50 %
+            :align: center
+    
+        .. warning::
+            Do not select the "High Assurance" option during login and setup the Globus Connect Personal.
         
     2. Search for the GSDC-PAL collection using the keyword “gsdc-pal”.
 
@@ -41,7 +54,7 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
         3.1. Please choose **continue**. And then select your identity or identity provider to continue.
 
         .. image:: ../images/globus_2.png
-            :scale: 70 %
+            :scale: 50 %
             :align: center
 
         3.2. you can log in with your KISTI account and password.
