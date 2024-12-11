@@ -28,7 +28,7 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
 
     1. Sign up for Globus online and log in (supports CILogon, Google, ORCID iD, globus id).
 
-    2. Download "globus connect personal" and install on your personal laptop or computer.
+    2. Download and install "globus connect personal" and setup your personal collection.
 
         .. image:: ../images/globusconnectpersonal.png
             :scale: 50 %
@@ -41,7 +41,7 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
         .. warning::
             Do not select the "High Assurance" option during login and setup the Globus Connect Personal.
         
-    2. Search for the GSDC-PAL collection using the keyword “gsdc-pal”.
+    3. Search for the GSDC-PAL collection using the keyword “gsdc-pal”.
 
         - Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
 
@@ -49,15 +49,15 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
             :scale: 70 %
             :align: center
 
-    3. Log in with your KISTI account (being able to access your home and group directory).
+    4. Log in with your KISTI account (being able to access your home and group directory).
 
-        3.1. Please choose **continue**. And then select your identity or identity provider to continue.
+        4.1. Please choose **continue**. And then select your identity or identity provider to continue.
 
         .. image:: ../images/globus_2.png
             :scale: 50 %
             :align: center
 
-        3.2. you can log in with your KISTI account and password.
+        4.2. you can log in with your KISTI account and password.
 
            - If you generated an OTP token, then you should input **<password+OTP>** at the password field.
            
@@ -67,7 +67,6 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
             :scale: 70 %
             :align: center
 
-    4. Add your endpoint by downloading and installing “Globus Connect Personal”.
     5. Transfer your data from the GSDC-PAL collection to your personal collection.
 
 Please note that the transmission performance of Globus online depends entirely on network conditions. KISTI supports high-performance network infrastructure to provide research resources to approximately 200 R&D institutes.
