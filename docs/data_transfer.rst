@@ -13,7 +13,7 @@ You can access PAL UI server by FTP software like Filezilla, winSCP, etc.
     - Port: XXXX
         * The SSH port number will be provided upon account creation.
     - Account: KISTI account and password
-        * Note: please refer to the `OTP Guide - Login with OTP <https://gsdc-farm.gitbook.io/gsdc-otp/generate-otp>`_. 
+        * Note: please refer to the `OTP Guide - Login with OTP <https://gsdc-farm.gitbook.io/gsdc-otp/login-with-otp>`_. 
     
 .. image:: ../images/sftp.png
     :scale: 70 %
