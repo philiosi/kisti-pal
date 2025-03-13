@@ -43,7 +43,8 @@ KISTI GSDC has the Globus online endpoints, which is set as pal-ui-el7@GSDC.
         
     3. Search for the GSDC-PAL collection using the keyword “gsdc-pal”.
 
-        - Note: now you can use only the **"pal-ui-el7@GSDC"** endpoints.
+        .. warning::
+            now you can use only the **"pal-ui-el7@GSDC"** endpoints.
 
         .. image:: ../images/globus_1.png
             :scale: 70 %
