@@ -8,7 +8,7 @@ Following command is to setup a default environment using HDF5-1.10.5, CrystFEL 
 
     source /pal/lib/setup.sh
 
-To use CrystFEL 1.11.1 with HDF5 1.10.5, run
+To use CrystFEL 0.11.1 with HDF5 1.10.5, run
 
 .. code-block:: sh
 
