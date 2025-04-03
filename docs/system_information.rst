@@ -41,6 +41,7 @@ Cluster (HTCondor worker node, MPI Enabled)
 Installed Packages
 ------------------------------------------------
 
+- CrystFEL 0.11.1 (with hdf5-1.10.5) 
 - CrystFEL 0.10.1 (with hdf5-1.10.5)
 - CrystFEL 0.9.1 (with hdf5-1.10.5)
 - CrystFEL 0.9.0 (with hdf5-1.10.5)
