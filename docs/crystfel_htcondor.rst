@@ -2,6 +2,11 @@
 HTCondor & CrystFEL Tutorial
 ==================================================
 
+.. seealso::
+
+   For scaling and merging ``indexamajig`` output streams with CrystFEL's
+   :program:`partialator`, refer to :doc:`partialator_htcondor`.
+
 Indexamajig_condorjob example
  * KISTI Storage - /pal/htcondor/htcondor_sample_ori.tar
  * Github - https://github.com/philiosi/indexamajig_htcondor
