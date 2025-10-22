@@ -16,6 +16,7 @@ KISTI-PAL USER GUIDE
    anaconda
    htcondor_job_processing
    crystfel_htcondor
+   partialator_htcondor
    htcondor_reference
 
 .. note::
