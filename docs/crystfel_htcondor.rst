@@ -330,24 +330,26 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
 [Partialator HTCondor 저장소-github](https://github.com/philiosi/partialator_htcondor)
 
 4.1 Script Description
-==================================================
+=======================
 
-## Scripts
+1. **CrystFEL_partialator.sh**
+   
+   - This script is executed by each HTCondor job.
+   - It takes a single ``.stream`` file path as an argument, along with symmetry, number of cores, and base output/log directories.
+   - It sources the CrystFEL environment (specifically ``/pal/lib/setup_crystfel-0.9.1_hdf5-1.10.5.sh``) and adds ``/pal/htcondor/lib`` to ``LD_LIBRARY_PATH``.
+   - Runs ``partialator`` on the given stream file.
+   - Outputs ``.hkl`` file to ``<output_dir_base>/<stream_basename>.hkl``.
+   - Writes ``partialator``'s stdout and stderr to ``<log_dir_base>/<stream_basename>.out`` and ``<log_dir_base>/<stream_basename>.err`` respectively.
 
-1.  **`CrystFEL_partialator.sh`**:
-    * This script is executed by each HTCondor job.
-    * It takes a single `.stream` file path as an argument, along with symmetry, number of cores, and base output/log directories.
-    * It sources the CrystFEL environment (specifically `/pal/lib/setup_crystfel-0.9.1_hdf5-1.10.5.sh`) and adds `/pal/htcondor/lib` to `LD_LIBRARY_PATH`.
-    * Runs `partialator` on the given stream file.
-    * Outputs `.hkl` file to `<output_dir_base>/<stream_basename>.hkl`.
-    * Writes `partialator`'s stdout and stderr to `<log_dir_base>/<stream_basename>.out` and `<log_dir_base>/<stream_basename>.err` respectively.
+2. **submit_partialator_htcondor.sh**
+   
+   - The main submission script to be run by the user.
+   - Scans an input directory for ``.stream`` files.
+   - For each ``.stream`` file found, it submits an HTCondor job that will execute ``CrystFEL_partialator.sh``.
+   - Creates base output and log directories if they don't exist.
+   - HTCondor's own log files for each job (e.g., ``job.condor.out``, ``job.condor.err``, ``job.condor.log``) are stored in a subdirectory ``<log_dir_base>/condor_job_logs/``.
 
-2.  **`submit_partialator_htcondor.sh`**:
-    * The main submission script to be run by the user.
-    * Scans an input directory for `.stream` files.
-    * For each `.stream` file found, it submits an HTCondor job that will execute `CrystFEL_partialator.sh`.
-    * Creates base output and log directories if they don't exist.
-    * HTCondor's own log files for each job (e.g., `job.condor.out`, `job.condor.err`, `job.condor.log`) are stored in a subdirectory `<log_dir_base>/condor_job_logs/`.
+----
 
 4.2 Directory Structure
 ================================================== 
