@@ -320,16 +320,134 @@ Submitting jobs to HTCondor based on indexamajig inputs
 .. warning::
   Make sure to check the paths (absolute/relative) of the files for each option(`-g`, `-f`, `-o`, `-p`) are correct.
 
-3.4 Partialator Job(HTCondor) Submission
-==================================================
-`Partialator HTCondor 저장소 - GitHub <https://github.com/philiosi/partialator_htcondor>`_
+---------------------------------------------------
+4 HTCondor job managing 
+---------------------------------------------------
+
+Condor_manual : `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/index.html>`_.
+
+	- `Submitting a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html>`_.
+	- `Managing a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/managing-a-job.html>`_.
+
+4.1. Checking the Condor Queue after Running script job
+====================================================================================================
+
+  Verify the Condor queue status (condor_q) after executing *job*.
+  
+  Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
+  
+  Check job status and errors: `Analyzing Jobs in HTCondor <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_
+    - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
+    - `condor_q -better-analyze {JOB_IDS}`: more detailed analysis compared to -analyze
+    - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
+
+  *Note* : If there are existing jobs submitted by other users, resource allocation might be delayed according to `scheduling policies <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_. Please Refer to the *HTCondor References* chapter for information on job queue and priority.
+
+4.2. HTCondor Resource Status
+====================================================================================================
+
+  You can check the status of Condor resources:
+    - Verify the allocation (Claimed) status of jobs on each Worker Node.
+
+Example:
+
+.. code-block:: console
+  
+  [USERID@pal-ui-el7 your]$ condor_status
+  Name                         OpSys      Arch   State     Activity LoadAv Mem     ActvtyTime
+  slot1@pal-wn1001.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+00:33:44
+  slot1_1@pal-wn1001.sdfarm.kr LINUX      X86_64 Claimed   Busy     75.940 368640  0+00:28:54
+  slot1@pal-wn1002.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:26:17
+  slot1_1@pal-wn1002.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.570 368640  0+00:29:42
+  slot1@pal-wn1003.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:27:53
+  slot1_1@pal-wn1003.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.530 368640  0+00:29:41
+  slot1@pal-wn1004.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:42
+  slot1_1@pal-wn1004.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.550 368640  0+00:29:42
+  slot1@pal-wn1005.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:41
+  slot1_1@pal-wn1005.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.630 368640  0+00:29:42
+  slot1@pal-wn1006.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+20:32:27
+  slot1_1@pal-wn1006.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:36
+  slot1@pal-wn1007.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:22
+  slot1_1@pal-wn1007.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.520 368640  0+00:29:35
+  slot1@pal-wn1008.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:48
+  slot1_1@pal-wn1008.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:02
+  slot1@pal-wn1009.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:31
+  slot1_1@pal-wn1009.sdfarm.kr LINUX      X86_64 Claimed   Busy     72.000 368640  0+00:29:39
+  Machines Owner Claimed Unclaimed Matched Preempting  Drain
+  X86_64/LINUX       18     0       9         9       0          0      0
+  Total              18     0       9         9       0          0      0
+
+4.3. Execution Results
+====================================================================================================
+
+The indexing process logs are generated in the ../indexamajig_htcondor/log/ directory:
+  - \*.error: Indexing log, elapsed time
+  - \*.log: condor_submit information
+  - \*.out: Output log
+
+Example:
+
+.. code-block:: console
+
+  [USERID@pal-ui-el7 log]$ cd log
+  [USERID@pal-ui-el7 log]$ ll
+  total 8242
+  -rw-r--r--. 1 USERID USERID  795612 Aug 29 12:00 geom_file1_xgandalf_r0079c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1838 Aug 29 12:00 geom_file1_xgandalf_r0079c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0079c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID USERID 1038891 Aug 29 12:06 geom_file1_xgandalf_r0080c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1837 Aug 29 12:06 geom_file1_xgandalf_r0080c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0080c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID USERID 1127187 Aug 29 12:08 geom_file1_xgandalf_r0081c00_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1162 Aug 29 12:06 geom_file1_xgandalf_r0081c00_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0081c00_SASE_1_condor.out
+  -rw-r--r--. 1 USERID USERID    1706 Aug 29 11:31 geom_file1_xgandalf_r0081c01_SASE_1_condor.error
+  -rw-r--r--. 1 USERID USERID    1220 Aug 29 11:31 geom_file1_xgandalf_r0081c01_SASE_1_condor.log
+  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0081c01_SASE_1_condor.out
+
+.. note::
+  The naming convention for the log and stream files is as follows:
+  
+  output = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.out
+  error = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.error
+  log = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.log
+
+  stream = file_stream/{geom_file_name}_{indexing method}_{runnum}_{streamname}.stream
+
+4.4. Job History
+====================================================================================================
+
+View log of HTCondor jobs completed to date(`condor_history <https://htcondor.readthedocs.io/en/latest/man-pages/condor_history.html>`_)
+
+Example:
+
+.. code-block:: console
+  
+  [USERID@pal-ui-el7 ~]$ condor_history | more
+  ID        OWNER      SUBMITTED   RUN_TIME     ST    COMPLETED  CMD
+  56235.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56237.0   userid     6/3 22:28   0+00:09:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56234.0   userid     6/3 22:28   0+00:10:12   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56233.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56232.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  56231.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
+  ... ... ommited ... ...
+
+- ID : The cluster/process id of the job.
+- OWNER : The owner of the job.
+- SUBMITTED : The month, day, hour, and minute the job was submitted to the queue.
+- RUN_TIME : Remote wall clock time accumulated by the job to date in days, hours, minutes, and seconds, given as the job ClassAd attribute RemoteWallClockTime.
+- ST : Completion status of the job (C = completed and X = removed).
+- COMPLETED : The time the job was completed.
+- CMD : The name of the executable.
 
 ---------------------------------------------------
-4 Submit Partialator condor jobs
+5 Submit Partialator condor jobs
 ---------------------------------------------------
-This project provides a set of scripts to run CrystFEL's `partialator` on multiple `.stream` files using HTCondor, where each stream file is processed as an individual HTCondor job.
 
-4.1 Script Description
+This project(`Partialator HTCondor 저장소 - GitHub <https://github.com/philiosi/partialator_htcondor>`_) provides a set of scripts to run CrystFEL's `partialator` on multiple `.stream` files using HTCondor, where each stream file is processed as an individual HTCondor job.
+
+5.1 Script Description
 =======================
 
 1. **CrystFEL_partialator.sh**
@@ -351,7 +469,7 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
 
 ----
 
-4.2 Directory Structure
+5.2 Directory Structure
 =======================
 
 .. code-block:: text
@@ -371,7 +489,7 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
    └── README.md
 
 
-4.3 Prerequisites
+5.3 Prerequisites
 =================
 
 * HTCondor environment configured and accessible.
@@ -379,7 +497,7 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
 * Shared filesystem between the submission node and worker nodes, so that stream files (accessed via absolute paths) and the executable script are accessible.
 
 
-4.4 Usage
+5.4 Usage
 =========
 
 1. Place ``CrystFEL_partialator.sh`` and ``submit_partialator_htcondor.sh`` in the same directory.
@@ -415,7 +533,7 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
    ./submit_partialator_htcondor.sh ./my_experiment/stream_files p1 72 ./my_experiment/hkl_output ./my_experiment/all_logs
 
 
-4.5 Understanding Variables in the Scripts
+5.5 Understanding Variables in the Scripts
 ==========================================
 
 Variables in ``CrystFEL_partialator_executor.sh``
@@ -508,125 +626,6 @@ Once a variable is set, it can be accessed and modified from anywhere in that sa
 These scripts do not use shell functions with the ``local`` keyword, which would otherwise limit scope to a specific function.
 
 
----------------------------------------------------
-5 HTCondor job managing 
----------------------------------------------------
 
-Condor_manual : `HTCondor Version 9.8.1 Manual — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/index.html>`_.
-
-	- `Submitting a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/submitting-a-job.html>`_.
-	- `Managing a Job — HTCondor Manual 9.8.1 documentation <https://htcondor.readthedocs.io/en/latest/users-manual/managing-a-job.html>`_.
-
-4.1. Checking the Condor Queue after Running 2_exec_condor_indexing.sh
-====================================================================================================
-
-  Verify the Condor queue status (condor_q) after executing *2_exec_condor_indexing.sh*.
-  
-  Initially, jobs will be in the IDLE state before resource allocation, then transition to the RUN state according to HTCondor scheduling policies.
-  
-  Check job status and errors: `Analyzing Jobs in HTCondor <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_
-    - `condor_q -analyze {JOB_IDS}`: Shows the scheduling status or error information for the jobs.
-    - `condor_q -better-analyze {JOB_IDS}`: more detailed analysis compared to -analyze
-    - `condor_q -l {JOB_IDS}`: Provides detailed information about the jobs.
-
-  *Note* : If there are existing jobs submitted by other users, resource allocation might be delayed according to `scheduling policies <https://kisti-pal.readthedocs.io/en/latest/htcondor_reference.html#analyzing-idle-jobs-in-htcondor>`_. Please Refer to the *HTCondor References* chapter for information on job queue and priority.
-
-4.2. HTCondor Resource Status
-====================================================================================================
-
-  You can check the status of Condor resources:
-    - Verify the allocation (Claimed) status of jobs on each Worker Node.
-
-Example:
-
-.. code-block:: console
-  
-  [USERID@pal-ui-el7 indexamajig_htcondor]$ condor_status
-  Name                         OpSys      Arch   State     Activity LoadAv Mem     ActvtyTime
-  slot1@pal-wn1001.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+00:33:44
-  slot1_1@pal-wn1001.sdfarm.kr LINUX      X86_64 Claimed   Busy     75.940 368640  0+00:28:54
-  slot1@pal-wn1002.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:26:17
-  slot1_1@pal-wn1002.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.570 368640  0+00:29:42
-  slot1@pal-wn1003.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:27:53
-  slot1_1@pal-wn1003.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.530 368640  0+00:29:41
-  slot1@pal-wn1004.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:42
-  slot1_1@pal-wn1004.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.550 368640  0+00:29:42
-  slot1@pal-wn1005.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:41
-  slot1_1@pal-wn1005.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.630 368640  0+00:29:42
-  slot1@pal-wn1006.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+20:32:27
-  slot1_1@pal-wn1006.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:36
-  slot1@pal-wn1007.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:25:22
-  slot1_1@pal-wn1007.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.520 368640  0+00:29:35
-  slot1@pal-wn1008.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:48
-  slot1_1@pal-wn1008.sdfarm.kr LINUX      X86_64 Claimed   Busy     71.580 368640  0+00:29:02
-  slot1@pal-wn1009.sdfarm.kr   LINUX      X86_64 Unclaimed Idle      0.000  18030  0+14:24:31
-  slot1_1@pal-wn1009.sdfarm.kr LINUX      X86_64 Claimed   Busy     72.000 368640  0+00:29:39
-  Machines Owner Claimed Unclaimed Matched Preempting  Drain
-  X86_64/LINUX       18     0       9         9       0          0      0
-  Total              18     0       9         9       0          0      0
-
-4.3. Execution Results
-====================================================================================================
-
-The indexing process logs are generated in the ../indexamajig_htcondor/log/ directory:
-  - \*.error: Indexing log, elapsed time
-  - \*.log: condor_submit information
-  - \*.out: Output log
-
-Example:
-
-.. code-block:: console
-
-  [USERID@pal-ui-el7 log]$ cd log
-  [USERID@pal-ui-el7 log]$ ll
-  total 8242
-  -rw-r--r--. 1 USERID USERID  795612 Aug 29 12:00 geom_file1_xgandalf_r0079c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID USERID    1838 Aug 29 12:00 geom_file1_xgandalf_r0079c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0079c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID USERID 1038891 Aug 29 12:06 geom_file1_xgandalf_r0080c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID USERID    1837 Aug 29 12:06 geom_file1_xgandalf_r0080c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0080c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID USERID 1127187 Aug 29 12:08 geom_file1_xgandalf_r0081c00_SASE_1_condor.error
-  -rw-r--r--. 1 USERID USERID    1162 Aug 29 12:06 geom_file1_xgandalf_r0081c00_SASE_1_condor.log
-  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0081c00_SASE_1_condor.out
-  -rw-r--r--. 1 USERID USERID    1706 Aug 29 11:31 geom_file1_xgandalf_r0081c01_SASE_1_condor.error
-  -rw-r--r--. 1 USERID USERID    1220 Aug 29 11:31 geom_file1_xgandalf_r0081c01_SASE_1_condor.log
-  -rw-r--r--. 1 USERID USERID       0 Aug 29 11:30 geom_file1_xgandalf_r0081c01_SASE_1_condor.out
-
-.. note::
-  The naming convention for the log and stream files is as follows:
-  
-  output = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.out
-  error = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.error
-  log = log/{geom_file_name}_{indexing method}_{runnum}_{streamname}_condor.log
-
-  stream = file_stream/{geom_file_name}_{indexing method}_{runnum}_{streamname}.stream
-
-4.4. Job History
-====================================================================================================
-
-View log of HTCondor jobs completed to date(`condor_history <https://htcondor.readthedocs.io/en/latest/man-pages/condor_history.html>`_)
-
-Example:
-
-.. code-block:: console
-  
-  [USERID@pal-ui-el7 ~]$ condor_history | more
-  ID        OWNER      SUBMITTED   RUN_TIME     ST    COMPLETED  CMD
-  56235.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
-  56237.0   userid     6/3 22:28   0+00:09:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
-  56234.0   userid     6/3 22:28   0+00:10:12   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
-  56233.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
-  56232.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
-  56231.0   userid     6/3 22:28   0+00:10:11   C     6/4  15:04 ../path/3_exec_indexing.sh ... ommited ... 
-  ... ... ommited ... ...
-
-- ID : The cluster/process id of the job.
-- OWNER : The owner of the job.
-- SUBMITTED : The month, day, hour, and minute the job was submitted to the queue.
-- RUN_TIME : Remote wall clock time accumulated by the job to date in days, hours, minutes, and seconds, given as the job ClassAd attribute RemoteWallClockTime.
-- ST : Completion status of the job (C = completed and X = removed).
-- COMPLETED : The time the job was completed.
-- CMD : The name of the executable.
 
 
