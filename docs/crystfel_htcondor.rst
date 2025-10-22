@@ -322,12 +322,12 @@ Submitting jobs to HTCondor based on indexamajig inputs
 
 3.4 Partialator Job(HTCondor) Submission
 ==================================================
+`Partialator HTCondor 저장소 - GitHub <https://github.com/philiosi/partialator_htcondor>`_
 
 ---------------------------------------------------
 4 Submit Partialator condor jobs
 ---------------------------------------------------
 This project provides a set of scripts to run CrystFEL's `partialator` on multiple `.stream` files using HTCondor, where each stream file is processed as an individual HTCondor job.
-[Partialator HTCondor 저장소-github](https://github.com/philiosi/partialator_htcondor)
 
 4.1 Script Description
 =======================
