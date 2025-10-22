@@ -27,10 +27,10 @@ HTcondor
 
     -- HTCondor overview - https://htcondor.org/
 
-Indexamajig based on the HTCondor 
+Indexamajig/Partialator based on the HTCondor 
 ------------------------------------------------------------------------
 
-You can perform 10 indexamajig job with 72cores on the each worker nodes of HTCondor like below.
+You can perform 10 indexamajig/Particalator job with 72cores on the each worker nodes of HTCondor like below.
 
 .. image:: ../images/usingHtcondor.png
     :scale: 70%
