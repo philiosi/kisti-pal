@@ -2,15 +2,12 @@
 HTCondor & CrystFEL Tutorial
 ==================================================
 
-.. seealso::
-
-   For scaling and merging ``indexamajig`` output streams with CrystFEL's
-   :program:`partialator`, refer to :doc:`partialator_htcondor`.
-
 Indexamajig_condorjob example
  * KISTI Storage - /pal/htcondor/htcondor_sample_ori.tar
  * Github - https://github.com/philiosi/indexamajig_htcondor
 
+Partialator_condorjob example
+ * Github - https://github.com/philiosi/partialator_htcondor
 
 ---------------------------------------------------
 1. Data analysis preparation
@@ -352,7 +349,6 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
 
 4.2 Directory Structure
 ================================================== 
-
 ```
 crystfel_partialator_htcondor/
 ├── CrystFEL_partialator.sh
