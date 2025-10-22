@@ -332,6 +332,8 @@ This project provides a set of scripts to run CrystFEL's `partialator` on multip
 4.1 Script Description
 ==================================================
 
+## Scripts
+
 1.  **`CrystFEL_partialator.sh`**:
     * This script is executed by each HTCondor job.
     * It takes a single `.stream` file path as an argument, along with symmetry, number of cores, and base output/log directories.
