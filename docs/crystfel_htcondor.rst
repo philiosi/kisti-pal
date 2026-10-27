@@ -248,7 +248,7 @@ Step 2 : Run
    (the submit description sets ``getenv = True``), so source the version you
    want **before** running ``2_submit_condor_indexing.sh``:
 
-   ``source /pal/lib/setup_crystfel-0.12.1_hdf5-1.10.5.sh``
+   ``source /pal/lib/setup_crystfel-0.12.0_hdf5-1.10.5.sh``
 
    If no CrystFEL environment is set up, ``3_exec_indexing.sh`` falls back to
    ``$CRYSTFEL_SETUP``. Every job log begins with the ``indexamajig`` path and

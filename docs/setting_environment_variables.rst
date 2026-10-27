@@ -18,7 +18,7 @@ To use CrystFEL 0.12.0 with HDF5 1.10.5, run
 
 .. code-block:: sh
 
-    source /pal/lib/setup_crystfel-0.12.1_hdf5-1.10.5.sh
+    source /pal/lib/setup_crystfel-0.12.0_hdf5-1.10.5.sh
 
 To use CrystFEL 0.11.1 with HDF5 1.10.5, run
 
