@@ -10,8 +10,8 @@ User Interface (UI) Nodes
 | **Hostname**        | pal-ui-el7.sdfarm.kr & pal-ui.sdfarm.kr & pal-ui02-el7.  |
 |                     | sdfarm.kr                                                |
 +---------------------+----------------------------------------------------------+
-| **Operating System**| CentOS 7.5.1804 (Kernel version =                        |
-|                     | 3.10.0-862.9.1.el7.x86_64)                               |
+| **Operating System**| CentOS Linux 7.9.2009 (Kernel version =                  |
+|                     | 3.10.0-1160.119.1.el7.x86_64)                            |
 +---------------------+----------------------------------------------------------+
 | **CPU**             | Intel Xeon E5-2697 v4 @ 2.30Hz (72 Threads)              |
 +---------------------+----------------------------------------------------------+
@@ -27,8 +27,8 @@ Cluster (HTCondor worker node, MPI Enabled)
 +---------------------+----------------------------------------------------------+
 | **Hostname**        | pal-wn1001.sdfarm.kr ~ pal-wn1010.sdfarm.kr              |
 +---------------------+----------------------------------------------------------+
-| **Operating System**| CentOS 7.5.1804 (Kernel version =                        |
-|                     | 3.10.0-862.9.1.el7.x86_64)                               |
+| **Operating System**| CentOS Linux 7.9.2009 (Kernel version =                  |
+|                     | 3.10.0-1160.119.1.el7.x86_64)                            |
 +---------------------+----------------------------------------------------------+
 | **CPU**             | Intel Xeon E5-2697 v4 @ 2.30Hz (72 Threads)              |
 +---------------------+----------------------------------------------------------+
@@ -41,7 +41,9 @@ Cluster (HTCondor worker node, MPI Enabled)
 Installed Packages
 ------------------------------------------------
 
-- CrystFEL 0.11.1 (with hdf5-1.10.5) 
+- CrystFEL 0.13.0 (with hdf5-1.12.2 threadsafe)
+- CrystFEL 0.12.0 (with hdf5-1.10.5)
+- CrystFEL 0.11.1 (with hdf5-1.10.5)
 - CrystFEL 0.10.1 (with hdf5-1.10.5)
 - CrystFEL 0.9.1 (with hdf5-1.10.5)
 - CrystFEL 0.9.0 (with hdf5-1.10.5)

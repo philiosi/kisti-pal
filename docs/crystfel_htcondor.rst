@@ -19,6 +19,17 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 **case 1 : Copy indexamajig_htcondor directory**
 
+.. warning::
+
+   The three scripts inside ``htcondor_sample_ori.tar`` are an old copy.
+   GitHub is the authoritative source for the code. If you skip the
+   ``wget`` steps below, your jobs will run an old CrystFEL (0.9.1) and only
+   the first option of ``-e`` will reach ``indexamajig``.
+
+   Always download ``1_exec_file_list_script.sh``,
+   ``2_submit_condor_indexing.sh`` and ``3_exec_indexing.sh`` from
+   https://github.com/philiosi/indexamajig_htcondor before submitting.
+
 .. code-block:: bash
 
   # check sample files location
@@ -49,7 +60,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
   [USERID@pal-ui-el7 your_path] chmod ug+x 3_exec_indexing.sh           # Granting Execution Permission
   
-*Note* : Please do not miss download updated script from github.
+**Do not skip this. The scripts in the tar file are out of date:**
   - 1_exec_file_list_script.sh
   - 2_submit_condor_indexing.sh
   - 3_exec_indexing.sh
@@ -229,6 +240,21 @@ Step 2 : Run
   # absolute path
   /{your_path}/htcondor_sample/ue_191027_SFX/proc/cheetah/hdf5/0000091-pal40/ue_191027_SFX-r0091-c00.cxi
   
+.. note::
+
+   **Which CrystFEL version does the job use?**
+
+   The jobs run with the environment of the shell you submit from
+   (the submit description sets ``getenv = True``), so source the version you
+   want **before** running ``2_submit_condor_indexing.sh``:
+
+   ``source /pal/lib/setup_crystfel-0.12.1_hdf5-1.10.5.sh``
+
+   If no CrystFEL environment is set up, ``3_exec_indexing.sh`` falls back to
+   ``$CRYSTFEL_SETUP``. Every job log begins with the ``indexamajig`` path and
+   version that was actually used - check that first when an indexing method
+   is reported as unrecognised. ``smallcell`` requires CrystFEL 0.11 or newer.
+
 ---------------------------------------------------
 3 Submit indexamajig condor jobs
 ---------------------------------------------------
@@ -243,7 +269,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 .. code-block:: bash
   :caption: submit_condor_indexing job submit example
 
-  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g pal1_new12.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p 1vds_sase_temp3.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000" 
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g pal1_new12.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p 1vds_sase_temp3.pdb -e "--int-radius=3,4,5 --threshold=600 --min-snr=4 --min-gradient=100000" 
 
 - "-g" : specific geometry file or directory(multiful geom files)
 - "-i" : indexing method - mosflm, xds, asdf, dirax, xgandalf
@@ -251,7 +277,7 @@ Submitting jobs to HTCondor based on indexamajig inputs
 - "-f" : specific lst file(.lst) or directory(multiful lst files)
 - "-o" : stream file
 - "-p" : pdb file
-- "-e" : another parameters such as -p, -no-check-peaks, --multi, --int-radius, --threshold, --min-srn, --min-fradient, etc.
+- "-e" : another parameters such as -p, --no-check-peaks, --multi, --int-radius, --threshold, --min-snr, --min-gradient, etc.
 
 .. [1] max 72 cores
 
@@ -300,22 +326,22 @@ Submitting jobs to HTCondor based on indexamajig inputs
 .. code-block:: bash
   :caption: multiful geoms and multiful lsts
   
-  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-snr=4 --min-gradient=100000"
 
 .. code-block:: bash 
   :caption: multiful geoms and single lst
   
-  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-snr=4 --min-gradient=100000"
 
 .. code-block:: bash 
   :caption: sigle geom and multiful lsts
   
-  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-snr=4 --min-gradient=100000"
 
 .. code-block:: bash 
   :caption: sigle geom and single lst
   
-  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-srn=4 --min-gradient=100000"
+  [USERID@pal-ui-el7 indexamajig_htcondor]$ ./2_submit_condor_indexing.sh -g geom_files/geom_file1.geom -i xgandalf -j 72 -f file_list/r009100.lst -o SASE_1.stream -p pdb_file1.pdb -e "--int-radius=3,4,5 --threshold=600 --min-snr=4 --min-gradient=100000"
 
 .. warning::
   Make sure to check the paths (absolute/relative) of the files for each option(`-g`, `-f`, `-o`, `-p`) are correct.
