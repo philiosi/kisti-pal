@@ -40,6 +40,13 @@ before starting a long run:
 
 .. note::
 
+   ``$HDF5_ROOT`` is the HDF5 that CrystFEL is linked against, but the
+   command-line HDF5 tools picked up from ``PATH`` come from the Anaconda
+   installation and are a different version (``h5dump`` reports 1.10.1). Use
+   ``$HDF5_ROOT/bin/h5dump`` when you need the tools that match CrystFEL.
+
+.. note::
+
    HTCondor jobs use the environment of the shell you submit from.
    Source the CrystFEL version you want **before** running
    ``2_submit_condor_indexing.sh``. Each job log records the ``indexamajig``
@@ -54,8 +61,13 @@ Using cheetah (cheetah_FXL)
 .. note::
 
    ``setup_cheetah_FXL.sh`` sets ``CRYSTFEL`` to ``/pal/lib/pal-soft/crystfel``,
-   which is CrystFEL 0.8.0. To use Cheetah together with a recent CrystFEL in the
-   same session, source the CrystFEL setup script afterwards so that its ``bin``
-   directory comes first.
+   which is CrystFEL 0.8.0. Sourcing a CrystFEL setup script afterwards does give
+   you the newer CrystFEL, but it also changes ``CDIR`` from ``cheetah_FXL`` to
+   ``cheetah_pal`` and ``HDF5_ROOT`` to the one that CrystFEL build needs. If you
+   need Cheetah FXL and a recent CrystFEL, use separate sessions.
+
+   Each CrystFEL build is linked against one specific HDF5 (0.8.0 against
+   1.8.10-patch1, 0.12.0 against 1.10.5, 0.13.0 against 1.12.2), so the setup
+   script and the CrystFEL version have to stay paired.
 
 Please contact PAL support team by email for any inquiry. Please refer to the helpdesk service section below.
