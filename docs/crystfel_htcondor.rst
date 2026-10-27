@@ -253,7 +253,7 @@ Step 2 : Run
    If no CrystFEL environment is set up, ``3_exec_indexing.sh`` falls back to
    ``$CRYSTFEL_SETUP``. Every job log begins with the ``indexamajig`` path and
    version that was actually used - check that first when an indexing method
-   is reported as unrecognised. ``smallcell`` requires CrystFEL 0.11 or newer.
+   is reported as unrecognised. ``smallcell`` was added in CrystFEL 0.12.0.
 
 ---------------------------------------------------
 3 Submit indexamajig condor jobs
