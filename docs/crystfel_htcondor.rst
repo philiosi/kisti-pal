@@ -19,16 +19,16 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
 
 **case 1 : Copy indexamajig_htcondor directory**
 
-.. warning::
+.. note::
 
-   The three scripts inside ``htcondor_sample_ori.tar`` are an old copy.
-   GitHub is the authoritative source for the code. If you skip the
-   ``wget`` steps below, your jobs will run an old CrystFEL (0.9.1) and only
-   the first option of ``-e`` will reach ``indexamajig``.
+   GitHub is the authoritative source for the job scripts, and they are updated
+   from time to time. The archive provides the example data; the three scripts
+   inside it are a snapshot taken when the archive was made.
 
-   Always download ``1_exec_file_list_script.sh``,
+   Please download ``1_exec_file_list_script.sh``,
    ``2_submit_condor_indexing.sh`` and ``3_exec_indexing.sh`` from
-   https://github.com/philiosi/indexamajig_htcondor before submitting.
+   https://github.com/philiosi/indexamajig_htcondor as shown below, and keep a
+   backup first if you have adapted any of them for your own analysis.
 
 .. code-block:: bash
 
