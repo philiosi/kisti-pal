@@ -60,7 +60,7 @@ Copy the `indexamajig_condorjob` script or the GitHub code to either the account
   [USERID@pal-ui-el7 your_path] wget https://raw.githubusercontent.com/philiosi/indexamajig_htcondor/main/3_exec_indexing.sh
   [USERID@pal-ui-el7 your_path] chmod ug+x 3_exec_indexing.sh           # Granting Execution Permission
   
-**Do not skip this. The scripts in the tar file are out of date:**
+Do not skip this. The scripts in the tar file are out of date:
   - 1_exec_file_list_script.sh
   - 2_submit_condor_indexing.sh
   - 3_exec_indexing.sh
